@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Webinova — site vitrine Next.js
 
-## Getting Started
+Projet Next.js 15 + TypeScript développé pour présenter l'offre unique de Webinova : un forfait de création de site vitrine sobre et professionnel.
 
-First, run the development server:
+## Démarrage rapide
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# http://localhost:3000
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Scripts disponibles
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `npm run dev` : lance le serveur de développement.
+- `npm run build` : compile l'application pour la production.
+- `npm run start` : démarre le serveur en mode production.
+- `npm run lint` : exécute ESLint.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Structure principale
 
-## Learn More
+- `src/app` : pages App Router (`/`, `/about`, `/devis`, API `/api/contact`).
+- `src/components` : composants UI réutilisables et sections de page.
+- `src/lib` : données statiques, utilitaires et helpers (envoi d'emails, validation…).
+- `src/hooks` : hooks React client (ex. animation des compteurs).
 
-To learn more about Next.js, take a look at the following resources:
+## Contenu dynamique
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Réalisations affichées sur la page d'accueil : `src/lib/data.ts`.
+  Remplacez les URLs `https://example.com/...` par vos références réelles.
+- Statistiques du compteur : également dans `src/lib/data.ts`.
+  Mettez à jour les valeurs `value` et `suffix` selon vos indicateurs.
+- Coordonnées (téléphone/email) utilisées dans plusieurs composants (`Header`, `Footer`, `ContactDetails`, `CallToAction`). Pensez à les modifier pour refléter vos informations client.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Formulaire devis → email
 
-## Deploy on Vercel
+L'API `/api/contact` envoie les demandes via SMTP (Nodemailer). Définissez les variables d'environnement suivantes (ex. fichier `.env.local`) :
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+SMTP_HOST=smtp.votrefournisseur.com
+SMTP_PORT=465
+SMTP_USER=utilisateur@votredomaine.fr
+SMTP_PASS=motdepasse
+SMTP_SECURE=true        # optionnel, true pour 465
+CONTACT_RECIPIENT=contact@webinova.fr
+MAIL_FROM=contact@webinova.fr  # optionnel, sinon SMTP_USER est utilisé
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Redémarrez le serveur après modification. En local, vous pouvez tester avec des services comme [Mailtrap](https://mailtrap.io/) ou [Ethereal Email](https://ethereal.email/).
+
+Le schéma de validation du formulaire se trouve dans `src/lib/validation/contact.ts` (Zod). Ajustez les règles selon vos besoins.
+
+## Déploiement
+
+L'application peut être déployée sur Vercel ou tout hébergeur compatible Node.js. Sur Vercel, ajoutez les variables d'environnement via *Project Settings → Environment Variables*.
+
+## Personnalisation design
+
+Le design repose sur Tailwind CSS v4. Vous pouvez ajuster les couleurs, les espacements ou ajouter de nouveaux composants en éditant les fichiers de `src/components` et les variables définies dans `src/app/globals.css`.
+
+---
+
+Pour toute question ou évolution (nouvelle offre, variantes multi-pages, blog, etc.), ouvrez une issue afin de planifier la prochaine itération.
