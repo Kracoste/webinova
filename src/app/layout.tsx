@@ -12,19 +12,19 @@ const fontSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://webinova.fr"),
+  metadataBase: new URL("https://webiinova.fr"),
   title: {
-    default: "Webinova — Création de sites vitrines professionnels",
-    template: "%s | Webinova",
+    default: "Webiinova — Création de sites vitrines professionnels",
+    template: "%s | Webiinova",
   },
   description:
-    "Agence Webinova : un forfait unique pour créer un site vitrine professionnel, rapide et optimisé pour votre activité locale.",
+    "Agence Webiinova : un forfait unique pour créer un site vitrine professionnel, rapide et optimisé pour votre activité locale.",
   openGraph: {
-    title: "Webinova — Création de sites vitrines professionnels",
+    title: "Webiinova — Création de sites vitrines professionnels",
     description:
       "Un site vitrine sobre, efficace et livré en moins de 3 semaines. Devis gratuit en 24h.",
-    url: "https://webinova.fr",
-    siteName: "Webinova",
+    url: "https://webiinova.fr",
+    siteName: "Webiinova",
     locale: "fr_FR",
     type: "website",
   },
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     "web design",
     "site professionnel",
   ],
-  authors: [{ name: "Webinova" }],
+  authors: [{ name: "Webiinova" }],
 };
 
 export default function RootLayout({

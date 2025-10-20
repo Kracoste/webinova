@@ -2,7 +2,7 @@ const steps = [
   {
     title: "1. Découverte",
     description:
-      "Atelier de cadrage pour comprendre vos objectifs, vos clients et votre positionnement.",
+      "Audit et recommandations personnalisées.",
   },
   {
     title: "2. Design & rédaction",

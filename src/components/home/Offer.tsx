@@ -58,7 +58,7 @@ export function Offer() {
                 Démarrer mon projet
               </Button>
               <p className="mt-4 text-xs text-zinc-400">
-                Projet spécifique (extranet, catalogue, e-commerce) ? Écrivons-nous : contact@webinova.fr
+                Projet spécifique (extranet, catalogue, e-commerce) ? Écrivons-nous : webiinova@gmail.com
               </p>
             </div>
           </div>

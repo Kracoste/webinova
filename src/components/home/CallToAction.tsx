@@ -21,8 +21,12 @@ export function CallToAction() {
               <Button href="/devis" variant="inverted">
                 Réserver un créneau
               </Button>
-              <Button href="tel:+33123456789" variant="secondary" className="border-white/40 text-white">
-                +33 1 23 45 67 89
+              <Button
+                href="tel:+33685336440"
+                variant="inverted"
+                className="border border-zinc-900/20 text-zinc-900 hover:bg-zinc-200/60"
+              >
+                06 85 33 64 40
               </Button>
             </div>
           </div>

@@ -34,19 +34,21 @@ npm run dev
 
 ## Formulaire devis → email
 
-L'API `/api/contact` envoie les demandes via SMTP (Nodemailer). Définissez les variables d'environnement suivantes (ex. fichier `.env.local`) :
+L'API `/api/contact` envoie les demandes via SMTP (Nodemailer). Un modèle prêt à l'emploi est disponible dans `.env.local.example`. Copiez-le vers `.env.local` et remplacez les valeurs par votre configuration SMTP :
 
 ```bash
-SMTP_HOST=smtp.votrefournisseur.com
-SMTP_PORT=465
-SMTP_USER=utilisateur@votredomaine.fr
-SMTP_PASS=motdepasse
-SMTP_SECURE=true        # optionnel, true pour 465
-CONTACT_RECIPIENT=contact@webinova.fr
-MAIL_FROM=contact@webinova.fr  # optionnel, sinon SMTP_USER est utilisé
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=587
+SMTP_USER=webiinova@gmail.com
+SMTP_PASS=votre_mot_de_passe_application
+SMTP_SECURE=false
+CONTACT_RECIPIENT=webiinova@gmail.com
+MAIL_FROM=webiinova@gmail.com  # optionnel, sinon SMTP_USER est utilisé
 ```
 
 Redémarrez le serveur après modification. En local, vous pouvez tester avec des services comme [Mailtrap](https://mailtrap.io/) ou [Ethereal Email](https://ethereal.email/).
+
+> Exemple Microsoft Outlook / Microsoft 365 : `SMTP_HOST=smtp.office365.com`, `SMTP_PORT=587`, `SMTP_SECURE=false`, `MAIL_FROM=webinova@outllok.fr`. Activez l'envoi SMTP dans votre compte et utilisez un mot de passe d'application si requis.
 
 Le schéma de validation du formulaire se trouve dans `src/lib/validation/contact.ts` (Zod). Ajustez les règles selon vos besoins.
 

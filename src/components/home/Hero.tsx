@@ -6,17 +6,17 @@ export function Hero() {
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 section-padding sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
         <div className="space-y-8">
           <h1 className="text-4xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-5xl lg:text-[54px]">
-            Webinova, créateur de sites internet en Next.js / TypeScript.
+            Webiinova, créateur de sites internet en Next.js / TypeScript.
           </h1>
           <p className="max-w-xl text-base text-zinc-600 sm:text-lg">
-            Webinova concepteur de sites , bâtis sur Next.js et TypeScript. Nous pilotons le cadrage, le contenu et le développement pour que votre présence en ligne inspire confiance dès le premier chargement.
+            Webiinova concepteur de sites , bâtis sur Next.js et TypeScript. Nous pilotons le cadrage, le contenu et le développement pour que votre présence en ligne inspire confiance dès le premier chargement.
           </p>
           <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
             <Button href="/devis" className="sm:min-w-[200px]">
               Planifier mon diagnostic gratuit
             </Button>
             <Button href="/about" variant="secondary">
-              Découvrir l&apos;approche Webinova
+              Découvrir l&apos;approche Webiinova
             </Button>
           </div>
           <div className="flex flex-wrap items-center gap-6 text-xs font-medium text-zinc-500">
@@ -28,8 +28,8 @@ export function Hero() {
             </div>
             <div>
               Besoin d&apos;un accompagnement spécifique ?
-              <a className="ml-2 font-semibold text-zinc-900" href="tel:+33685643340">
-                06 85 64 33 40
+              <a className="ml-2 font-semibold text-zinc-900" href="tel:+33685336440">
+                06 85 33 64 40
               </a>
             </div>
           </div>

@@ -11,7 +11,7 @@ export function Header() {
           </div>
           <div className="flex flex-col">
             <span className="text-base font-semibold uppercase tracking-[0.28em] text-zinc-900">
-              Webinova
+              Webiinova
             </span>
             <span className="text-xs font-medium text-zinc-500">
               Studio digital pour entreprises ambitieuses
@@ -32,8 +32,8 @@ export function Header() {
         <div className="hidden items-center gap-3 sm:flex">
           <div className="hidden flex-col text-right text-xs font-medium text-zinc-500 md:flex">
             <span>Parlez avec nous</span>
-            <a className="text-sm font-semibold text-zinc-900" href="tel:+33123456789">
-              01 23 45 67 89
+            <a className="text-sm font-semibold text-zinc-900" href="tel:+33685336440">
+              06 85 33 64 40
             </a>
           </div>
           <Button href="/devis" className="whitespace-nowrap">

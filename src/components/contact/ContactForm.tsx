@@ -37,7 +37,9 @@ export function ContactForm() {
         throw new Error("Une erreur est survenue. Merci de réessayer.");
       }
 
-      event.currentTarget.reset();
+      if (event.currentTarget) {
+        event.currentTarget.reset();
+      }
       setStatus("success");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Erreur inattendue.");
@@ -107,7 +109,7 @@ export function ContactForm() {
       )}
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <p className="text-xs text-zinc-500">
-          En cliquant sur « Envoyer », vous acceptez que Webinova vous contacte par email ou téléphone.
+          En cliquant sur « Envoyer », vous acceptez que Webiinova vous contacte par email ou téléphone.
         </p>
         <Button type="submit" disabled={status === "loading"} className="sm:w-auto">
           {status === "loading" ? "Envoi en cours…" : "Envoyer ma demande"}

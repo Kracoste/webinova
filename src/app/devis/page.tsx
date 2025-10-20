@@ -5,7 +5,7 @@ import { ContactForm } from "@/components/contact/ContactForm";
 export const metadata: Metadata = {
   title: "Devis & contact",
   description:
-    "Demandez votre devis de site vitrine Webinova et échangez avec notre équipe pour un accompagnement sur-mesure.",
+    "Demandez votre devis de site vitrine Webiinova et échangez avec notre équipe pour un accompagnement sur-mesure.",
 };
 
 export default function ContactPage() {

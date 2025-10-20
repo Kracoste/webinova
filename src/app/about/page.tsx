@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "À propos",
   description:
-    "Découvrez l'histoire de Webinova, notre mission et notre approche pour créer des sites vitrines sobres et performants.",
+    "Découvrez l'histoire de Webiinova, notre mission et notre approche pour créer des sites vitrines sobres et performants.",
 };
 
 export default function AboutPage() {
@@ -12,7 +12,7 @@ export default function AboutPage() {
       <div className="mx-auto max-w-5xl px-4 section-padding sm:px-6 lg:px-8">
         <div className="space-y-8">
           <span className="inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-zinc-500">
-            À propos de Webinova
+            À propos de Webiinova
           </span>
           <h1 className="text-4xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-5xl">
             Une équipe pluridisciplinaire dédiée à la réussite digitale des entreprises locales.
@@ -26,7 +26,7 @@ export default function AboutPage() {
           <div className="surface-card space-y-6 p-8">
             <p className="text-xs font-semibold uppercase tracking-[0.35em] text-zinc-500">Notre histoire</p>
             <p className="text-base leading-relaxed text-zinc-600 sm:text-lg">
-              Webinova est née d&apos;une conviction : les TPE, PME et indépendants méritent des sites web aussi soignés que ceux des grandes marques. Après des années en agence de transformation digitale, nous avons choisi d&apos;adapter ces méthodes à des projets agiles, avec une équipe resserrée et un process maîtrisé de bout en bout.
+              Webiinova est née d&apos;une conviction : les TPE, PME et indépendants méritent des sites web aussi soignés que ceux des grandes marques. Après des années en agence de transformation digitale, nous avons choisi d&apos;adapter ces méthodes à des projets agiles, avec une équipe resserrée et un process maîtrisé de bout en bout.
             </p>
             <p className="text-base leading-relaxed text-zinc-600 sm:text-lg">
               Nous construisons une relation long terme : une fois votre site en ligne, nous restons présents pour l&apos;optimiser, le faire évoluer et vous conseiller sur vos prochains leviers de croissance.

@@ -15,8 +15,8 @@ export function ContactDetails() {
       <div className="space-y-5 text-sm text-zinc-600">
         <div className="rounded-3xl border border-zinc-200 bg-white p-5 shadow-[0_12px_24px_rgba(17,17,17,0.08)]">
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-zinc-500">Téléphone</p>
-          <a href="tel:+33123456789" className="mt-2 block text-lg font-semibold text-zinc-900">
-            01 23 45 67 89
+          <a href="tel:+33685336440" className="mt-2 block text-lg font-semibold text-zinc-900">
+            06 85 33 64 40
           </a>
           <p className="text-xs text-zinc-500">Du lundi au vendredi · 9h00 → 18h30</p>
         </div>
