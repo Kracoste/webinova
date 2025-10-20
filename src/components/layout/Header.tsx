@@ -10,7 +10,7 @@ export function Header() {
             W
           </div>
           <div className="flex flex-col">
-            <span className="text-base font-semibold uppercase tracking-[0.28em] text-zinc-900">
+            <span className="text-base font-semibold tracking-[0.28em] text-zinc-900">
               Webiinova
             </span>
             <span className="text-xs font-medium text-zinc-500">

@@ -17,7 +17,7 @@ export default function ContactPage() {
             Devis & contact
           </span>
           <h1 className="text-4xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-5xl">
-            Confiez-nous votre site vitrine, nous le livrons en moins de 3 semaines.
+            -nous la création ou la refonte de votre site.
           </h1>
           <p className="max-w-3xl text-base text-zinc-600 sm:text-lg">
             Détaillez votre activité, vos objectifs et les éléments déjà existants (logo, charte, photos…). Nous vous répondons sous 24 heures avec un diagnostic et un plan d’action personnalisé.
