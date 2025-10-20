@@ -25,14 +25,24 @@ export function Portfolio() {
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative isolate overflow-hidden rounded-[32px] border border-zinc-200 bg-white p-6 shadow-[0_24px_48px_rgba(17,17,17,0.12)] transition-transform duration-300 hover:-translate-y-2"
+              className="group relative isolate flex h-full flex-col overflow-hidden rounded-[32px] border border-zinc-200 bg-white shadow-[0_24px_48px_rgba(17,17,17,0.12)] transition-transform duration-300 hover:-translate-y-2"
             >
-              <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-[0.35em] text-zinc-500">
-                <span>{index + 1 < 10 ? `0${index + 1}` : index + 1}</span>
-                <span className="text-[0.7rem] font-medium text-zinc-400">Voir le site →</span>
+              <div className="relative overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.imageAlt}
+                  loading="lazy"
+                  className="h-48 w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                />
               </div>
-              <h3 className="mt-6 text-lg font-semibold text-zinc-900">{item.name}</h3>
-              <p className="mt-3 text-sm leading-relaxed text-zinc-600">{item.description}</p>
+              <div className="flex flex-1 flex-col gap-4 p-6">
+                <div className="flex items-center justify-between text-xs font-semibold uppercase tracking-[0.35em] text-zinc-500">
+                  <span>{index + 1 < 10 ? `0${index + 1}` : index + 1}</span>
+                  <span className="text-[0.7rem] font-medium text-zinc-400">Voir le site →</span>
+                </div>
+                <h3 className="text-lg font-semibold text-zinc-900">{item.name}</h3>
+                <p className="text-sm leading-relaxed text-zinc-600">{item.description}</p>
+              </div>
             </Link>
           ))}
         </div>

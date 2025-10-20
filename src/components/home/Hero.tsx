@@ -5,14 +5,11 @@ export function Hero() {
     <section className="border-b border-zinc-200 bg-white">
       <div className="mx-auto grid max-w-6xl items-center gap-12 px-4 section-padding sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
         <div className="space-y-8">
-          <span className="inline-flex items-center gap-2 rounded-full border border-zinc-300 bg-white px-4 py-1 text-xs font-semibold uppercase tracking-[0.35em] text-zinc-500">
-            Studio vitrine
-          </span>
           <h1 className="text-4xl font-semibold leading-tight tracking-tight text-zinc-900 sm:text-5xl lg:text-[54px]">
-            Un site sobre qui raconte votre histoire sans artifices inutiles.
+            Webinova, créateur de sites internet en Next.js / TypeScript.
           </h1>
           <p className="max-w-xl text-base text-zinc-600 sm:text-lg">
-            Nous concevons des expériences épurées : structure claire, typographie lisible, interactions discrètes. Un accompagnement complet pour livrer votre site vitrine en moins de trois semaines.
+            Webinova concepteur de sites , bâtis sur Next.js et TypeScript. Nous pilotons le cadrage, le contenu et le développement pour que votre présence en ligne inspire confiance dès le premier chargement.
           </p>
           <div className="flex flex-col items-stretch gap-3 sm:flex-row sm:items-center">
             <Button href="/devis" className="sm:min-w-[200px]">
@@ -31,8 +28,8 @@ export function Hero() {
             </div>
             <div>
               Besoin d&apos;un accompagnement spécifique ?
-              <a className="ml-2 font-semibold text-zinc-900" href="tel:+33123456789">
-                01 23 45 67 89
+              <a className="ml-2 font-semibold text-zinc-900" href="tel:+33685643340">
+                06 85 64 33 40
               </a>
             </div>
           </div>

@@ -22,8 +22,8 @@ export function ContactDetails() {
         </div>
         <div className="rounded-3xl border border-zinc-200 bg-white p-5 shadow-[0_12px_24px_rgba(17,17,17,0.08)]">
           <p className="text-xs font-semibold uppercase tracking-[0.35em] text-zinc-500">Email</p>
-          <a href="mailto:contact@webinova.fr" className="mt-2 block text-lg font-semibold text-zinc-900">
-            contact@webinova.fr
+          <a href="mailto:webinova@gmail.com" className="mt-2 block text-lg font-semibold text-zinc-900">
+            webinova@gmail.com
           </a>
           <p className="text-xs text-zinc-500">
             Réponse sous 24h avec audit et plan de mise en ligne.

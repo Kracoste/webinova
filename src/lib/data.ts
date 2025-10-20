@@ -2,23 +2,18 @@ export type PortfolioItem = {
   name: string;
   description: string;
   url: string;
+  image: string;
+  imageAlt: string;
 };
 
 export const portfolioItems: PortfolioItem[] = [
   {
-    name: "Atelier Nova",
-    description: "Studio de design intérieur - site vitrine élégant et responsive.",
-    url: "https://example.com/atelier-nova",
-  },
-  {
-    name: "Boulangerie Lune",
-    description: "Artisan boulanger avec prise de commandes en ligne simplifiée.",
-    url: "https://example.com/boulangerie-lune",
-  },
-  {
-    name: "Cabinet Dr. Morel",
-    description: "Cabinet médical avec présentation de l'équipe et des services.",
-    url: "https://example.com/cabinet-morel",
+    name: "Restaurant Antunes",
+    description:
+      "Site vitrine de lantunes.fr : menu de saison, présentation de la maison et informations pratiques.",
+    url: "https://www.lantunes.fr",
+    image: "/portfolio/lantunes.png",
+    imageAlt: "Aperçu du site lantunes.fr affiché sur un écran d'ordinateur",
   },
 ];
 

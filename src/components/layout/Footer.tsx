@@ -7,7 +7,7 @@ export function Footer() {
             Webinova
           </p>
           <p className="text-2xl font-semibold tracking-tight">
-            Nous façonnons des expériences web sobres et mémorables pour les entreprises locales.
+            Nous façonnons une expérience web pour votre entreprise et vos utilisateur.
           </p>
         </div>
         <div className="grid w-full gap-4 text-sm text-zinc-300 sm:grid-cols-2 lg:w-auto">
@@ -23,15 +23,15 @@ export function Footer() {
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-zinc-500">
               Email
             </p>
-            <a href="mailto:contact@webinova.fr" className="text-base font-semibold text-white hover:text-zinc-200">
-              contact@webinova.fr
+            <a href="mailto:webinova@gmail.com" className="text-base font-semibold text-white hover:text-zinc-200">
+              webinova@gmail.com
             </a>
           </div>
           <div className="space-y-1">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-zinc-500">
               Adresse
             </p>
-            <p>Studio Webinova · 11 rue de la République · Lyon</p>
+            <p>10 route du Deffend · Chiché</p>
           </div>
           <div className="space-y-1">
             <p className="text-xs font-semibold uppercase tracking-[0.22em] text-zinc-500">
