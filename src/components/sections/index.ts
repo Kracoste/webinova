@@ -1,0 +1,9 @@
+export { HeroSection } from "./HeroSection";
+export { PricingSection } from "./PricingSection";
+export { SocialProofSection } from "./SocialProofSection";
+export { ProcessSection } from "./ProcessSection";
+export { FAQSection } from "./FAQSection";
+export { CTASection } from "./CTASection";
+export { ContactFormSection } from "./ContactFormSection";
+export { ProjectsGrid } from "./ProjectsGrid";
+export { BlogGrid } from "./BlogGrid";
