@@ -21,35 +21,6 @@ export function Footer() {
             <p className="text-[var(--color-gray-400)] mb-6 leading-relaxed">
               {COMPANY.description}
             </p>
-            <div className="flex gap-4">
-              <a
-                href={COMPANY.socials.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-full bg-white/10 hover:bg-[var(--color-primary)] transition-colors"
-                aria-label="Suivez-nous sur LinkedIn"
-              >
-                <Icon name="linkedin" size={20} />
-              </a>
-              <a
-                href={COMPANY.socials.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-full bg-white/10 hover:bg-[var(--color-primary)] transition-colors"
-                aria-label="Suivez-nous sur Twitter"
-              >
-                <Icon name="twitter" size={20} />
-              </a>
-              <a
-                href={COMPANY.socials.instagram}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 rounded-full bg-white/10 hover:bg-[var(--color-primary)] transition-colors"
-                aria-label="Suivez-nous sur Instagram"
-              >
-                <Icon name="instagram" size={20} />
-              </a>
-            </div>
           </div>
 
           {/* Colonne 2 : Services */}
