@@ -4,13 +4,13 @@ import { generatePageMetadata } from "@/lib/seo";
 import { Badge } from "@/components/ui";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "Contact - Demandez votre Devis Gratuit",
+  title: "Contact - Devis Gratuit Site Web | Webonia",
   description:
-    "Contactez Webonia pour discuter de votre projet web. Devis gratuit sous 48h. Création de sites vitrines, e-commerce et applications web sur-mesure.",
+    "Demandez un devis gratuit pour votre site web. Concepteur de sites internet à Bressuire, je réponds sous 48h. Sites vitrines, e-commerce, applications.",
   keywords: [
-    "contact agence web",
-    "devis site internet",
-    "demande création site",
+    "devis site internet gratuit",
+    "contact concepteur web Bressuire",
+    "demande création site Deux-Sèvres",
   ],
   path: "/contact",
 });

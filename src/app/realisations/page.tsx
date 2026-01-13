@@ -5,14 +5,14 @@ import { CTASection, ProjectsGrid } from "@/components/sections";
 import { generatePageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "Nos Réalisations - Portfolio de Sites Web",
+  title: "Portfolio - Nos Créations de Sites Web",
   description:
-    "Découvrez notre portfolio de sites web : sites vitrines, e-commerce et applications web réalisés pour nos clients. Inspirez-vous de nos créations.",
+    "Portfolio de Webonia : découvrez nos réalisations de sites vitrines, e-commerce et applications web. Projets réalisés pour des clients en Deux-Sèvres.",
   keywords: [
-    "portfolio agence web",
-    "réalisations sites web",
-    "exemples sites internet",
-    "projets web",
+    "portfolio concepteur web",
+    "réalisations sites internet",
+    "exemples création site",
+    "projets web Bressuire",
   ],
   path: "/realisations",
 });

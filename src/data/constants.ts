@@ -13,9 +13,9 @@ import type {
 
 export const COMPANY = {
   name: "Webonia",
-  tagline: "Agence de création de sites web",
+  tagline: "Concepteur de sites web à Bressuire",
   description:
-    "Nous créons des sites web performants, modernes et optimisés pour convertir vos visiteurs en clients.",
+    "Concepteur de sites web à Bressuire. Nous créons des sites performants, modernes et optimisés pour convertir vos visiteurs en clients.",
   email: "webonia@outlook.fr",
   phone: "06 85 64 33 40",
   address: "16 Rue De Fayle-L'abbesse, 79300 Bréssuire",

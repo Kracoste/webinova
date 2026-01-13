@@ -4,15 +4,15 @@ import { CTASection } from "@/components/sections";
 import { generatePageMetadata, generateServiceSchema } from "@/lib/seo";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "Nos Services de Création de Sites Web",
+  title: "Services de Création de Sites Web | Webonia",
   description:
-    "Découvrez nos services de création de sites web : sites vitrines, e-commerce, applications web sur-mesure. Solutions adaptées à chaque budget et besoin.",
+    "Créateur de sites web professionnels : sites vitrines, e-commerce, applications sur-mesure. Développeur web freelance à Bressuire, Deux-Sèvres.",
   keywords: [
-    "création site vitrine",
+    "créateur site web Bressuire",
+    "développeur web freelance",
     "création site e-commerce",
-    "application web",
     "refonte site internet",
-    "développement web sur-mesure",
+    "application web sur-mesure",
   ],
   path: "/services",
 });

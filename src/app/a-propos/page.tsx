@@ -6,13 +6,13 @@ import { generatePageMetadata } from "@/lib/seo";
 import { COMPANY, STATS } from "@/data/constants";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "À Propos - Notre Agence Web",
+  title: "À Propos - Hugo Allou, Concepteur Web à Bressuire",
   description:
-    "Découvrez Webonia, fondée par Hugo Allou, expert en développement web et création de sites performants.",
+    "Découvrez Webonia, fondée par Hugo Allou, concepteur de sites internet à Bressuire. Expert en développement web et création de sites performants.",
   keywords: [
-    "agence web",
-    "Hugo Allou développeur",
-    "création sites internet",
+    "concepteur site internet Bressuire",
+    "Hugo Allou développeur web",
+    "agence web Deux-Sèvres",
   ],
   path: "/a-propos",
 });
