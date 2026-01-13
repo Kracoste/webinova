@@ -6,6 +6,7 @@ interface CardProps {
   className?: string;
   hover?: boolean;
   padding?: "none" | "sm" | "md" | "lg";
+  id?: string;
 }
 
 const paddingStyles = {
@@ -20,9 +21,11 @@ export function Card({
   className,
   hover = false,
   padding = "md",
+  id,
 }: CardProps) {
   return (
     <div
+      id={id}
       className={cn(
         "bg-white rounded-xl border border-[var(--color-gray-200)]",
         paddingStyles[padding],
