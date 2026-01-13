@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { type ReactNode } from "react";
 
 export type IconName =
   | "search"
@@ -24,7 +25,7 @@ interface IconProps {
   className?: string;
 }
 
-const iconPaths: Record<IconName, JSX.Element> = {
+const iconPaths: Record<IconName, ReactNode> = {
   search: (
     <path
       strokeLinecap="round"
