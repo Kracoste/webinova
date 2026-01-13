@@ -76,7 +76,7 @@ async function sendEmail(data: ContactFormData): Promise<boolean> {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "Webonia <onboarding@resend.dev>",
+        from: "Webonia <contact@webonia.fr>",
         to: process.env.CONTACT_EMAIL || "webonia@outlook.fr",
         reply_to: data.email,
         subject: `Nouvelle demande de contact - ${data.projectType}`,
