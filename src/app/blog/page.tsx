@@ -7,7 +7,7 @@ import type { BlogPost } from "@/types";
 export const metadata: Metadata = generatePageMetadata({
   title: "Blog - Conseils & Actualités Web",
   description:
-    "Conseils, tutoriels et actualités sur la création de sites web, le SEO, le design et le marketing digital. Restez informé avec Webinova.",
+    "Conseils, tutoriels et actualités sur la création de sites web, le SEO, le design et le marketing digital. Restez informé avec Webonia.",
   keywords: [
     "blog création site web",
     "conseils SEO",

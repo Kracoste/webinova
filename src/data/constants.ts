@@ -12,17 +12,17 @@ import type {
 // ============================================
 
 export const COMPANY = {
-  name: "Webinova",
+  name: "Webonia",
   tagline: "Agence de création de sites web",
   description:
     "Nous créons des sites web performants, modernes et optimisés pour convertir vos visiteurs en clients.",
-  email: "contact@webinova.fr",
+  email: "webonia@outlook.fr",
   phone: "06 85 64 33 40",
   address: "16 Rue De Fayle-L'abbesse, 79300 Bréssuire",
   socials: {
-    linkedin: "https://linkedin.com/company/webinova",
-    twitter: "https://twitter.com/webinova",
-    instagram: "https://instagram.com/webinova",
+    linkedin: "https://linkedin.com/company/webonia",
+    twitter: "https://twitter.com/webonia",
+    instagram: "https://instagram.com/webonia",
   },
 } as const;
 
@@ -129,7 +129,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "Fondatrice",
     company: "Studio Créatif",
     content:
-      "Webinova a transformé notre présence en ligne. Le site est magnifique, rapide et nos demandes de devis ont augmenté de 150% en 3 mois.",
+      "Webonia a transformé notre présence en ligne. Le site est magnifique, rapide et nos demandes de devis ont augmenté de 150% en 3 mois.",
     rating: 5,
   },
   {

@@ -24,7 +24,7 @@ export function SocialProofSection() {
       <SectionHeader
         subtitle="Témoignages"
         title="Ce que nos clients disent de nous"
-        description="Découvrez les retours de nos clients sur leur expérience avec Webinova."
+        description="Découvrez les retours de nos clients sur leur expérience avec Webonia."
       />
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -69,55 +69,57 @@ export function SocialProofSection() {
       </div>
 
       {/* Logos clients */}
-      <div className="mt-20 text-center">
-        <p className="text-[var(--color-gray-400)] text-sm uppercase tracking-wider mb-8">
+      <div className="mt-20">
+        <p className="text-[var(--color-gray-400)] text-sm uppercase tracking-wider mb-12 text-center">
           Ils nous font confiance
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-8 md:gap-16">
-          {/* L'Antunes */}
-          <a
-            href="https://lantunes.fr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group transition-all hover:scale-105"
-            aria-label="Voir le site L'Antunes"
-          >
-            <img 
-              src="/images/clients/lantunes-logo.png" 
-              alt="Logo L'Antunes"
-              className="h-60 md:h-80 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity"
-            />
-          </a>
+        <div className="flex items-center justify-center">
+          <div className="flex items-start justify-between w-full max-w-5xl px-8">
+            {/* L'Antunes */}
+            <a
+              href="https://lantunes.fr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group transition-all hover:scale-105 flex-1 flex justify-center -mt-6"
+              aria-label="Voir le site L'Antunes"
+            >
+              <img 
+                src="/images/lantunes2.png" 
+                alt="Logo L'Antunes"
+                className="h-24 md:h-32 w-auto object-contain opacity-70 group-hover:opacity-100 transition-opacity"
+              />
+            </a>
 
-          {/* Atelier LBF */}
-          <a
-            href="https://atelier-lbf.fr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group transition-all hover:scale-105"
-            aria-label="Voir le site Atelier LBF"
-          >
-            <img 
-              src="/images/clients/atelier-lbf-logo.png" 
-              alt="Logo Atelier LBF"
-              className="h-20 md:h-28 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity"
-            />
-          </a>
+            {/* Atelier LBF */}
+            <a
+              href="https://atelier-lbf.fr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group transition-all hover:scale-105 flex-1 flex justify-center -mt-4"
+              aria-label="Voir le site Atelier LBF"
+            >
+              <img 
+                src="/images/clients/atelier-lbf-logo.png" 
+                alt="Logo Atelier LBF"
+                className="h-28 md:h-36 w-auto object-contain opacity-70 group-hover:opacity-100 transition-opacity"
+              />
+            </a>
 
-          {/* EsyLoads */}
-          <a
-            href="https://esyloads.com/fr"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group transition-all hover:scale-105"
-            aria-label="Voir le site EsyLoads"
-          >
-            <img 
-              src="/images/clients/esyloads-logo.png" 
-              alt="Logo EsyLoads"
-              className="h-8 md:h-10 w-auto object-contain opacity-80 group-hover:opacity-100 transition-opacity"
-            />
-          </a>
+            {/* EsyLoads */}
+            <a
+              href="https://esyloads.com/fr"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group transition-all hover:scale-105 flex-1 flex items-center justify-center h-24 md:h-32"
+              aria-label="Voir le site EsyLoads"
+            >
+              <img 
+                src="/images/clients/esyloads-logo.png" 
+                alt="Logo EsyLoads"
+                className="h-10 md:h-14 w-auto object-contain opacity-70 group-hover:opacity-100 transition-opacity"
+              />
+            </a>
+          </div>
         </div>
       </div>
     </Section>

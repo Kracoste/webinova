@@ -8,7 +8,7 @@ import { COMPANY, STATS } from "@/data/constants";
 export const metadata: Metadata = generatePageMetadata({
   title: "À Propos - Notre Agence Web",
   description:
-    "Découvrez Webinova, fondée par Hugo Allou, expert en développement web et création de sites performants.",
+    "Découvrez Webonia, fondée par Hugo Allou, expert en développement web et création de sites performants.",
   keywords: [
     "agence web",
     "Hugo Allou développeur",
@@ -79,7 +79,7 @@ export default function AProposPage() {
             </h2>
             <div className="space-y-4 text-lg text-[var(--color-gray-600)]">
               <p>
-                Webinova est née d&apos;une conviction simple : trop d&apos;entreprises
+                Webonia est née d&apos;une conviction simple : trop d&apos;entreprises
                 se retrouvent avec des sites web qui ne convertissent pas, mal
                 référencés, ou difficiles à maintenir.
               </p>
@@ -99,7 +99,7 @@ export default function AProposPage() {
           <div className="relative aspect-[4/3] bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-accent)]/10 rounded-2xl overflow-hidden">
             <Image
               src="/web1.webp"
-              alt="Équipe Webinova"
+              alt="Équipe Webonia"
               fill
               className="object-cover"
               priority

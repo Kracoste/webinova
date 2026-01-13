@@ -5,7 +5,7 @@ import { COMPANY } from "@/data/constants";
 // SEO UTILITIES
 // ============================================
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://webinova.fr";
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://webonia.fr";
 
 interface GenerateMetadataOptions {
   title: string;
@@ -90,8 +90,8 @@ export function generateLocalBusinessSchema() {
     address: {
       "@type": "PostalAddress",
       streetAddress: "123 Avenue du Digital",
-      addressLocality: "Paris",
-      postalCode: "75001",
+      addressLocality: "Bréssuire",
+      postalCode: "79300",
       addressCountry: "FR",
     },
     geo: {

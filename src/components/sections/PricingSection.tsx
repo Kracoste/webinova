@@ -14,11 +14,11 @@ export function PricingSection() {
         {SERVICE_PACKAGES.map((pkg) => (
           <Card
             key={pkg.id}
-            className={
+            className={`flex flex-col ${
               pkg.highlighted
                 ? "border-2 border-[var(--color-primary)] relative"
                 : ""
-            }
+            }`}
             padding="lg"
           >
             {pkg.highlighted && (
@@ -49,7 +49,7 @@ export function PricingSection() {
               )}
             </div>
 
-            <ul className="space-y-3 mb-8">
+            <ul className="space-y-3 mb-8 flex-grow">
               {pkg.features.map((feature, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <Icon
@@ -62,13 +62,15 @@ export function PricingSection() {
               ))}
             </ul>
 
-            <LinkButton
-              href="/contact"
-              variant={pkg.highlighted ? "primary" : "outline"}
-              fullWidth
-            >
-              {pkg.ctaLabel}
-            </LinkButton>
+            <div className="mt-auto">
+              <LinkButton
+                href="/contact"
+                variant={pkg.highlighted ? "primary" : "outline"}
+                fullWidth
+              >
+                {pkg.ctaLabel}
+              </LinkButton>
+            </div>
           </Card>
         ))}
       </div>

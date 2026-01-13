@@ -336,7 +336,7 @@ export async function generateMetadata({
   
   if (!post) {
     return {
-      title: "Article non trouvé | Webinova",
+      title: "Article non trouvé | Webonia",
     };
   }
 
@@ -358,7 +358,7 @@ export async function generateMetadata({
       description: post.metaDescription,
     },
     alternates: {
-      canonical: `https://webinova.fr/blog/${slug}`,
+      canonical: `https://webonia.fr/blog/${slug}`,
     },
   };
 }
@@ -406,7 +406,7 @@ export default async function BlogPostPage({
             datePublished: post.publishedAt,
             publisher: {
               "@type": "Organization",
-              name: "Webinova",
+              name: "Webonia",
             },
           }),
         }}

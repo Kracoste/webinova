@@ -6,7 +6,7 @@ import { Badge } from "@/components/ui";
 export const metadata: Metadata = generatePageMetadata({
   title: "Contact - Demandez votre Devis Gratuit",
   description:
-    "Contactez Webinova pour discuter de votre projet web. Devis gratuit sous 48h. Création de sites vitrines, e-commerce et applications web sur-mesure.",
+    "Contactez Webonia pour discuter de votre projet web. Devis gratuit sous 48h. Création de sites vitrines, e-commerce et applications web sur-mesure.",
   keywords: [
     "contact agence web",
     "devis site internet",

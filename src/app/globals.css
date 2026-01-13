@@ -6,16 +6,16 @@
 
 :root {
   /* Couleurs principales */
-  --color-primary: #2563eb;
-  --color-primary-dark: #1d4ed8;
-  --color-primary-light: #3b82f6;
+  --color-primary: #10b981;
+  --color-primary-dark: #059669;
+  --color-primary-light: #34d399;
   
   /* Couleurs secondaires */
   --color-secondary: #0f172a;
   --color-secondary-light: #1e293b;
   
   /* Couleurs d'accent */
-  --color-accent: #06b6d4;
+  --color-accent: #10b981;
   --color-success: #10b981;
   --color-warning: #f59e0b;
   --color-error: #ef4444;

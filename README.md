@@ -1,4 +1,4 @@
-# Webinova - Agence de Création de Sites Web
+# Webonia - Agence de Création de Sites Web
 
 Site vitrine professionnel pour une agence web, construit avec Next.js 15, TypeScript et Tailwind CSS.
 
@@ -72,7 +72,7 @@ src/
 \`\`\`bash
 # Cloner le projet
 git clone <repo-url>
-cd webinova
+cd webonia
 
 # Installer les dépendances
 npm install
@@ -92,13 +92,13 @@ Créez un fichier \`.env.local\` avec :
 
 \`\`\`env
 # URL du site (pour SEO)
-NEXT_PUBLIC_BASE_URL=https://webinova.fr
+NEXT_PUBLIC_BASE_URL=https://webonia.fr
 
 # Clé API Resend (optionnel en dev)
 RESEND_API_KEY=re_xxxxx
 
 # Email de réception des contacts
-CONTACT_EMAIL=contact@webinova.fr
+CONTACT_EMAIL=webonia@outlook.fr
 \`\`\`
 
 ### Personnalisation
@@ -177,4 +177,4 @@ Propriétaire - Tous droits réservés
 
 ---
 
-Développé avec ❤️ par Webinova
+Développé avec ❤️ par Webonia

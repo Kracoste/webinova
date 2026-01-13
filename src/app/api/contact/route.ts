@@ -57,7 +57,7 @@ async function sendEmail(data: ContactFormData): Promise<boolean> {
   // Si pas de clé API, on simule l'envoi (mode développement)
   if (!RESEND_API_KEY) {
     console.log("📧 [DEV] Email simulé:", {
-      to: process.env.CONTACT_EMAIL || "contact@webinova.fr",
+      to: process.env.CONTACT_EMAIL || "webonia@outlook.fr",
       from: "onboarding@resend.dev",
       subject: `Nouvelle demande de contact - ${data.projectType}`,
       data,
@@ -76,8 +76,8 @@ async function sendEmail(data: ContactFormData): Promise<boolean> {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "Webinova <noreply@webinova.fr>",
-        to: process.env.CONTACT_EMAIL || "contact@webinova.fr",
+        from: "Webonia <webonia@outlook.fr>",
+        to: process.env.CONTACT_EMAIL || "webonia@outlook.fr",
         reply_to: data.email,
         subject: `Nouvelle demande de contact - ${data.projectType}`,
         html: `
