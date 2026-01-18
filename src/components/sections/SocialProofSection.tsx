@@ -1,9 +1,29 @@
 "use client";
 
-import { Section, SectionHeader, Card, Icon } from "@/components/ui";
-import { TESTIMONIALS, STATS } from "@/data/constants";
+import { useEffect } from "react";
+import { Section, SectionHeader } from "@/components/ui";
+import { STATS } from "@/data/constants";
 
 export function SocialProofSection() {
+  // Charger le script Trustindex
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://cdn.trustindex.io/loader.js?7578d6e62662519cd9466c5b90d";
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup si nécessaire
+      const existingScript = document.querySelector(
+        'script[src*="trustindex.io"]'
+      );
+      if (existingScript) {
+        existingScript.remove();
+      }
+    };
+  }, []);
+
   return (
     <Section background="white">
       {/* Statistiques */}
@@ -20,52 +40,16 @@ export function SocialProofSection() {
         ))}
       </div>
 
-      {/* Témoignages */}
+      {/* Témoignages - Widget Trustindex avec vrais avis Google */}
       <SectionHeader
         subtitle="Témoignages"
         title="Ce que nos clients disent de nous"
-        description="Découvrez les retours de nos clients sur leur expérience avec Webonia."
+        description="Découvrez les avis authentiques de nos clients sur Google."
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {TESTIMONIALS.map((testimonial) => (
-          <Card key={testimonial.id} hover padding="lg">
-            {/* Étoiles */}
-            <div className="flex gap-1 mb-4">
-              {Array.from({ length: testimonial.rating }).map((_, i) => (
-                <Icon
-                  key={i}
-                  name="star"
-                  size={20}
-                  className="text-amber-400 fill-amber-400"
-                />
-              ))}
-            </div>
-
-            {/* Citation */}
-            <blockquote className="text-[var(--color-gray-600)] mb-6 leading-relaxed">
-              &ldquo;{testimonial.content}&rdquo;
-            </blockquote>
-
-            {/* Auteur */}
-            <div className="flex items-center gap-4">
-              <div
-                className="w-12 h-12 rounded-full bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-accent)] flex items-center justify-center text-white font-bold"
-                aria-hidden="true"
-              >
-                {testimonial.author.charAt(0)}
-              </div>
-              <div>
-                <p className="font-semibold text-[var(--color-secondary)]">
-                  {testimonial.author}
-                </p>
-                <p className="text-sm text-[var(--color-gray-500)]">
-                  {testimonial.role}, {testimonial.company}
-                </p>
-              </div>
-            </div>
-          </Card>
-        ))}
+      {/* Widget Trustindex - Le script injecte automatiquement le widget ici */}
+      <div className="flex justify-center">
+        <div className="w-full max-w-4xl" id="trustindex-widget" />
       </div>
 
       {/* Logos clients */}
