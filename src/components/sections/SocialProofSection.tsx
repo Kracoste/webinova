@@ -7,21 +7,14 @@ import { STATS } from "@/data/constants";
 export function SocialProofSection() {
   // Charger le script Trustindex
   useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://cdn.trustindex.io/loader.js?7578d6e62662519cd9466c5b90d";
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
-
-    return () => {
-      // Cleanup si nécessaire
-      const existingScript = document.querySelector(
-        'script[src*="trustindex.io"]'
-      );
-      if (existingScript) {
-        existingScript.remove();
-      }
-    };
+    const existingScript = document.querySelector('script[src*="trustindex.io"]');
+    if (!existingScript) {
+      const script = document.createElement("script");
+      script.src = "https://cdn.trustindex.io/loader.js?7578d6e62662519cd9466c5b90d";
+      script.async = true;
+      script.defer = true;
+      document.body.appendChild(script);
+    }
   }, []);
 
   return (
@@ -47,10 +40,11 @@ export function SocialProofSection() {
         description="Découvrez les avis authentiques de nos clients sur Google."
       />
 
-      {/* Widget Trustindex - Le script injecte automatiquement le widget ici */}
-      <div className="flex justify-center">
-        <div className="w-full max-w-4xl" id="trustindex-widget" />
-      </div>
+      {/* Widget Trustindex */}
+      <div 
+        className="src-trustindex-io-loader-js-7578d6e62662519cd9466c5b90d"
+        data-src="https://cdn.trustindex.io/loader.js?7578d6e62662519cd9466c5b90d"
+      />
 
       {/* Logos clients */}
       <div className="mt-20">
