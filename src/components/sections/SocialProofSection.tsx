@@ -1,22 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
 import { Section, SectionHeader } from "@/components/ui";
 import { STATS } from "@/data/constants";
 
 export function SocialProofSection() {
-  // Charger le script Trustindex
-  useEffect(() => {
-    const existingScript = document.querySelector('script[src*="trustindex.io"]');
-    if (!existingScript) {
-      const script = document.createElement("script");
-      script.src = "https://cdn.trustindex.io/loader.js?7578d6e62662519cd9466c5b90d";
-      script.async = true;
-      script.defer = true;
-      document.body.appendChild(script);
-    }
-  }, []);
-
   return (
     <Section background="white">
       {/* Statistiques */}
@@ -40,11 +27,16 @@ export function SocialProofSection() {
         description="Découvrez les avis authentiques de nos clients sur Google."
       />
 
-      {/* Widget Trustindex */}
-      <div 
-        className="src-trustindex-io-loader-js-7578d6e62662519cd9466c5b90d"
-        data-src="https://cdn.trustindex.io/loader.js?7578d6e62662519cd9466c5b90d"
-      />
+      {/* Widget Trustindex via iframe pour contrôler le placement */}
+      <div className="flex justify-center">
+        <iframe
+          src="https://cdn.trustindex.io/amp-widget.html#7578d6e62662519cd9466c5b90d"
+          width="100%"
+          height="400"
+          style={{ border: "none", maxWidth: "900px" }}
+          title="Avis Google Webonia"
+        />
+      </div>
 
       {/* Logos clients */}
       <div className="mt-20">
