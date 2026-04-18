@@ -5,14 +5,15 @@ import { CTASection, ProjectsGrid } from "@/components/sections";
 import { generatePageMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "Portfolio - Nos Créations de Sites Web",
+  title: "Réalisations – Portfolio Sites Internet Créés à Bressuire",
   description:
-    "Portfolio de Webonia : découvrez nos réalisations de sites vitrines, e-commerce et applications web. Projets réalisés pour des clients en Deux-Sèvres.",
+    "Découvrez les sites internet créés par Webonia pour des TPE, artisans et commerçants de Bressuire, Niort, La Rochelle et Deux-Sèvres. Sites vitrines, e-commerce et refontes.",
   keywords: [
-    "portfolio concepteur web",
-    "réalisations sites internet",
-    "exemples création site",
-    "projets web Bressuire",
+    "portfolio création site Bressuire",
+    "réalisations sites internet Deux-Sèvres",
+    "exemples sites web Niort",
+    "projets web artisans",
+    "sites créés Webonia",
   ],
   path: "/realisations",
 });

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { Header, Footer } from "@/components/layout";
 import { generatePageMetadata, generateLocalBusinessSchema } from "@/lib/seo";
 import { COMPANY } from "@/data/constants";
@@ -18,17 +19,28 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = generatePageMetadata({
-  title: `${COMPANY.name} | Agence de Création de Sites Web à Bréssuire`,
-  description: `${COMPANY.name} - Agence web spécialisée dans la création de sites internet professionnels, modernes et optimisés SEO. Sites vitrines, e-commerce et applications web sur-mesure.`,
+  title: `Création de Site Internet à Bressuire (79) – ${COMPANY.name} | Dès 500€`,
+  description: `Création de sites internet à Bressuire, Niort, La Rochelle, Thouars, Cerizay. Sites vitrines dès 700€, refonte dès 500€, e-commerce. Devis gratuit en 48h.`,
   keywords: [
-    "création site web",
-    "agence web bréssuire",
-    "création site internet",
-    "site vitrine",
-    "site e-commerce",
-    "développement web",
-    "refonte site internet",
-    "SEO",
+    "création site internet Bressuire",
+    "création site web Bressuire",
+    "créateur site internet Bressuire",
+    "concepteur site web Bressuire",
+    "agence web Bressuire",
+    "création site internet Niort",
+    "création site internet La Rochelle",
+    "création site internet Thouars",
+    "création site internet Cerizay",
+    "création site internet Cholet",
+    "création site internet Deux-Sèvres",
+    "agence web Deux-Sèvres",
+    "site vitrine Bressuire",
+    "site e-commerce Bressuire",
+    "refonte site internet Bressuire",
+    "référencement SEO Bressuire",
+    "développeur web Bressuire",
+    "création site artisan Deux-Sèvres",
+    "création site TPE Bressuire",
   ],
 });
 
@@ -82,6 +94,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <Header />
         <main id="main-content">{children}</main>
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

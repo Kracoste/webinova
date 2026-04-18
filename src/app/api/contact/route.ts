@@ -2,6 +2,32 @@ import { NextResponse } from "next/server";
 import type { ContactFormData, ApiResponse } from "@/types";
 import { isValidEmail, isValidFrenchPhone } from "@/lib/utils";
 
+// Rate limiting simple en mémoire (se réinitialise au redémarrage du serveur)
+const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
+const RATE_LIMIT = 5;
+const RATE_WINDOW_MS = 60 * 60 * 1000; // 1 heure
+
+function isRateLimited(ip: string): boolean {
+  const now = Date.now();
+  const entry = rateLimitMap.get(ip);
+  if (!entry || now > entry.resetAt) {
+    rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_WINDOW_MS });
+    return false;
+  }
+  if (entry.count >= RATE_LIMIT) return true;
+  entry.count++;
+  return false;
+}
+
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 interface ValidationResult {
   isValid: boolean;
   errors: Record<string, string[]>;
@@ -76,27 +102,28 @@ async function sendEmail(data: ContactFormData): Promise<boolean> {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "Webonia <contact@webonia.fr>",
-        to: process.env.CONTACT_EMAIL || "webonia@outlook.fr",
+        from: process.env.RESEND_FROM || "Webinova <contact@webonia.fr>",
+        to: process.env.CONTACT_EMAIL || "contact@webonia.fr",
         reply_to: data.email,
         subject: `Nouvelle demande de contact - ${data.projectType}`,
         html: `
           <h2>Nouvelle demande de contact</h2>
-          <p><strong>Nom :</strong> ${data.name}</p>
-          <p><strong>Email :</strong> ${data.email}</p>
-          ${data.phone ? `<p><strong>Téléphone :</strong> ${data.phone}</p>` : ""}
-          ${data.company ? `<p><strong>Entreprise :</strong> ${data.company}</p>` : ""}
-          <p><strong>Type de projet :</strong> ${data.projectType}</p>
-          ${data.budget ? `<p><strong>Budget :</strong> ${data.budget}</p>` : ""}
+          <p><strong>Nom :</strong> ${escapeHtml(data.name)}</p>
+          <p><strong>Email :</strong> ${escapeHtml(data.email)}</p>
+          ${data.phone ? `<p><strong>Téléphone :</strong> ${escapeHtml(data.phone)}</p>` : ""}
+          ${data.company ? `<p><strong>Entreprise :</strong> ${escapeHtml(data.company)}</p>` : ""}
+          <p><strong>Type de projet :</strong> ${escapeHtml(data.projectType)}</p>
+          ${data.budget ? `<p><strong>Budget :</strong> ${escapeHtml(data.budget)}</p>` : ""}
           <h3>Message :</h3>
-          <p>${data.message.replace(/\n/g, "<br>")}</p>
+          <p>${escapeHtml(data.message).replace(/\n/g, "<br>")}</p>
         `,
       }),
     });
 
     if (!response.ok) {
       const error = await response.json();
-      console.error("Resend error:", error);
+      console.error("Resend error:", JSON.stringify(error, null, 2));
+      console.error("Resend status:", response.status);
       return false;
     }
 
@@ -108,6 +135,14 @@ async function sendEmail(data: ContactFormData): Promise<boolean> {
 }
 
 export async function POST(request: Request): Promise<NextResponse<ApiResponse>> {
+  const ip = request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
+  if (isRateLimited(ip)) {
+    return NextResponse.json(
+      { success: false, message: "Trop de demandes. Veuillez réessayer dans une heure." },
+      { status: 429 }
+    );
+  }
+
   try {
     const body = await request.json();
     const data: ContactFormData = {

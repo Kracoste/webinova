@@ -13,18 +13,86 @@ import type {
 
 export const COMPANY = {
   name: "Webonia",
-  tagline: "Concepteur de sites web à Bressuire",
+  tagline: "Création de sites internet à Bressuire (79)",
   description:
-    "Concepteur de sites web à Bressuire. Nous créons des sites performants, modernes et optimisés pour convertir vos visiteurs en clients.",
+    "Webonia, créateur de sites internet à Bressuire dans les Deux-Sèvres. Sites vitrines, e-commerce et refonte pour TPE, artisans et commerçants à Bressuire, Niort, La Rochelle, Thouars, Cerizay, Cholet.",
   email: "webonia@outlook.fr",
   phone: "06 85 64 33 40",
-  address: "16 Rue De Fayle-L'abbesse, 79300 Bréssuire",
-  socials: {
-    linkedin: "https://linkedin.com/company/webonia",
-    twitter: "https://twitter.com/webonia",
-    instagram: "https://instagram.com/webonia",
-  },
+  address: "16 Rue De Fayle-L'abbesse, 79300 Bressuire",
+  city: "Bressuire",
+  postalCode: "79300",
+  region: "Deux-Sèvres",
+  latitude: 46.8414,
+  longitude: -0.4897,
 } as const;
+
+// Zones géographiques desservies (pour SEO local + pages villes)
+export const SERVICE_AREAS = [
+  {
+    slug: "bressuire",
+    name: "Bressuire",
+    postalCode: "79300",
+    department: "Deux-Sèvres (79)",
+    latitude: 46.8414,
+    longitude: -0.4897,
+  },
+  {
+    slug: "niort",
+    name: "Niort",
+    postalCode: "79000",
+    department: "Deux-Sèvres (79)",
+    latitude: 46.3239,
+    longitude: -0.4636,
+  },
+  {
+    slug: "la-rochelle",
+    name: "La Rochelle",
+    postalCode: "17000",
+    department: "Charente-Maritime (17)",
+    latitude: 46.1603,
+    longitude: -1.1511,
+  },
+  {
+    slug: "cerizay",
+    name: "Cerizay",
+    postalCode: "79140",
+    department: "Deux-Sèvres (79)",
+    latitude: 46.8225,
+    longitude: -0.6697,
+  },
+  {
+    slug: "cholet",
+    name: "Cholet",
+    postalCode: "49300",
+    department: "Maine-et-Loire (49)",
+    latitude: 47.0597,
+    longitude: -0.8787,
+  },
+  {
+    slug: "thouars",
+    name: "Thouars",
+    postalCode: "79100",
+    department: "Deux-Sèvres (79)",
+    latitude: 46.9756,
+    longitude: -0.2167,
+  },
+  {
+    slug: "argenton-les-vallees",
+    name: "Argenton-les-Vallées",
+    postalCode: "79150",
+    department: "Deux-Sèvres (79)",
+    latitude: 46.9872,
+    longitude: -0.4478,
+  },
+  {
+    slug: "parthenay",
+    name: "Parthenay",
+    postalCode: "79200",
+    department: "Deux-Sèvres (79)",
+    latitude: 46.6483,
+    longitude: -0.2461,
+  },
+] as const;
 
 // ============================================
 // NAVIGATION
@@ -46,9 +114,18 @@ export const FOOTER_LINKS = {
     { label: "Application Web", href: "/services#webapp" },
     { label: "Refonte de Site", href: "/services#refonte" },
   ],
+  zones: [
+    { label: "Création site internet Bressuire", href: "/creation-site-internet/bressuire" },
+    { label: "Création site internet Niort", href: "/creation-site-internet/niort" },
+    { label: "Création site internet La Rochelle", href: "/creation-site-internet/la-rochelle" },
+    { label: "Création site internet Cerizay", href: "/creation-site-internet/cerizay" },
+    { label: "Création site internet Cholet", href: "/creation-site-internet/cholet" },
+    { label: "Création site internet Thouars", href: "/creation-site-internet/thouars" },
+    { label: "Création site internet Argenton-les-Vallées", href: "/creation-site-internet/argenton-les-vallees" },
+    { label: "Création site internet Parthenay", href: "/creation-site-internet/parthenay" },
+  ],
   company: [
     { label: "À propos", href: "/a-propos" },
-    { label: "Notre équipe", href: "/a-propos#equipe" },
     { label: "Blog", href: "/blog" },
     { label: "Contact", href: "/contact" },
   ],

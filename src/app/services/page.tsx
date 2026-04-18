@@ -4,15 +4,19 @@ import { CTASection } from "@/components/sections";
 import { generatePageMetadata, generateServiceSchema } from "@/lib/seo";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "Services de Création de Sites Web | Webonia",
+  title: "Services de Création de Sites Internet à Bressuire – Tarifs dès 500€",
   description:
-    "Créateur de sites web professionnels : sites vitrines, e-commerce, applications sur-mesure. Développeur web freelance à Bressuire, Deux-Sèvres.",
+    "Site vitrine dès 700€, refonte dès 500€, e-commerce dès 5000€. Créateur de sites web à Bressuire, Niort, La Rochelle et Deux-Sèvres. Devis gratuit.",
   keywords: [
+    "tarif création site internet Bressuire",
+    "prix site vitrine",
+    "prix site e-commerce",
     "créateur site web Bressuire",
-    "développeur web freelance",
-    "création site e-commerce",
-    "refonte site internet",
-    "application web sur-mesure",
+    "développeur web Deux-Sèvres",
+    "refonte site internet prix",
+    "agence web Niort",
+    "création site internet artisan",
+    "création site internet TPE",
   ],
   path: "/services",
 });

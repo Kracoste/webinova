@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { LinkButton } from "@/components/ui";
 import { COMPANY } from "@/data/constants";
 
@@ -15,10 +16,12 @@ export function HeroSection() {
         className="absolute inset-0 -z-5 opacity-10"
         aria-hidden="true"
       >
-        <img
+        <Image
           src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1920&q=80"
           alt=""
-          className="w-full h-full object-cover"
+          fill
+          className="object-cover"
+          priority
         />
       </div>
 
@@ -37,7 +40,7 @@ export function HeroSection() {
           {/* Badge */}
           <div className="inline-flex items-center gap-2 bg-[var(--color-primary)]/10 text-[var(--color-primary)] px-4 py-2 rounded-full text-sm font-medium mb-8 animate-fade-in">
             <span className="w-2 h-2 bg-[var(--color-primary)] rounded-full animate-pulse" />
-            Agence web basée à Bréssuire
+            Création de sites internet à Bressuire (79)
           </div>
 
           {/* Titre principal */}
@@ -80,26 +83,21 @@ export function HeroSection() {
           <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-8 text-[var(--color-gray-500)] animate-fade-in stagger-4">
             <div className="flex items-center gap-2">
               <div className="flex -space-x-2">
-                <img
-                  src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face"
-                  alt="Client satisfait"
-                  className="w-10 h-10 rounded-full border-2 border-white object-cover"
-                />
-                <img
-                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face"
-                  alt="Client satisfait"
-                  className="w-10 h-10 rounded-full border-2 border-white object-cover"
-                />
-                <img
-                  src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=80&h=80&fit=crop&crop=face"
-                  alt="Client satisfait"
-                  className="w-10 h-10 rounded-full border-2 border-white object-cover"
-                />
-                <img
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face"
-                  alt="Client satisfait"
-                  className="w-10 h-10 rounded-full border-2 border-white object-cover"
-                />
+                {[
+                  { src: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop&crop=face", alt: "Femme souriante, cliente satisfaite" },
+                  { src: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop&crop=face", alt: "Homme souriant, client satisfait" },
+                  { src: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=80&h=80&fit=crop&crop=face", alt: "Femme professionnelle, cliente satisfaite" },
+                  { src: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop&crop=face", alt: "Homme professionnel, client satisfait" },
+                ].map((avatar) => (
+                  <Image
+                    key={avatar.src}
+                    src={avatar.src}
+                    alt={avatar.alt}
+                    width={40}
+                    height={40}
+                    className="rounded-full border-2 border-white object-cover"
+                  />
+                ))}
               </div>
               <span className="font-medium">+150 clients satisfaits</span>
             </div>

@@ -72,7 +72,7 @@ export default function MentionsLegalesPage() {
                   </p>
                   <p className="text-[var(--color-gray-600)]">
                     <span className="font-semibold text-[var(--color-secondary)]">SIRET :</span><br />
-                    En cours d&apos;immatriculation
+                    94847157800013
                   </p>
                 </div>
                 <div>

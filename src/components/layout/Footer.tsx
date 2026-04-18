@@ -102,6 +102,27 @@ export function Footer() {
         </div>
       </div>
 
+      {/* Zones d'intervention - SEO local */}
+      <div className="border-t border-white/10">
+        <div className="container py-10">
+          <h3 className="text-lg font-semibold mb-5">
+            Nos zones d&apos;intervention
+          </h3>
+          <ul className="flex flex-wrap gap-x-6 gap-y-2">
+            {FOOTER_LINKS.zones.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-sm text-[var(--color-gray-400)] hover:text-white transition-colors"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
       {/* Copyright */}
       <div className="border-t border-white/10">
         <div className="container py-6">

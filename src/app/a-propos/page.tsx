@@ -6,13 +6,16 @@ import { generatePageMetadata } from "@/lib/seo";
 import { COMPANY, STATS } from "@/data/constants";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "À Propos - Hugo Allou, Concepteur Web à Bressuire",
+  title: "À Propos – Hugo Allou, Créateur de Sites Internet à Bressuire",
   description:
-    "Découvrez Webonia, fondée par Hugo Allou, concepteur de sites internet à Bressuire. Expert en développement web et création de sites performants.",
+    "Webonia, créée par Hugo Allou à Bressuire (79). Créateur de sites internet pour TPE, artisans et commerçants en Deux-Sèvres. 5 ans d'expertise, +150 projets réalisés.",
   keywords: [
-    "concepteur site internet Bressuire",
-    "Hugo Allou développeur web",
-    "agence web Deux-Sèvres",
+    "Hugo Allou",
+    "créateur site internet Bressuire",
+    "développeur web Bressuire",
+    "concepteur web Deux-Sèvres",
+    "freelance web Bressuire",
+    "agence web Niort",
   ],
   path: "/a-propos",
 });

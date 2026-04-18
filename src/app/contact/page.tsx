@@ -4,13 +4,15 @@ import { generatePageMetadata } from "@/lib/seo";
 import { Badge } from "@/components/ui";
 
 export const metadata: Metadata = generatePageMetadata({
-  title: "Contact - Devis Gratuit Site Web | Webonia",
+  title: "Contact – Devis Gratuit Création Site Internet à Bressuire",
   description:
-    "Demandez un devis gratuit pour votre site web. Concepteur de sites internet à Bressuire, je réponds sous 48h. Sites vitrines, e-commerce, applications.",
+    "Contactez Webonia à Bressuire pour un devis gratuit sous 48h. Téléphone 06 85 64 33 40, email webonia@outlook.fr. Création de sites internet en Deux-Sèvres.",
   keywords: [
-    "devis site internet gratuit",
-    "contact concepteur web Bressuire",
-    "demande création site Deux-Sèvres",
+    "devis site internet gratuit Bressuire",
+    "contact créateur site web Bressuire",
+    "contact agence web Deux-Sèvres",
+    "devis création site web Niort",
+    "devis site vitrine La Rochelle",
   ],
   path: "/contact",
 });
