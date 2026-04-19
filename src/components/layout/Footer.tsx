@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { COMPANY, FOOTER_LINKS } from "@/data/constants";
-import { Icon } from "@/components/ui/Icon";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -9,47 +8,40 @@ export function Footer() {
     <footer className="bg-[var(--color-secondary)] text-white">
       {/* Section principale */}
       <div className="container py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-          {/* Colonne 1 : À propos */}
-          <div className="lg:col-span-1">
-            <Link
-              href="/"
-              className="inline-block text-2xl font-bold mb-4 gradient-text"
-            >
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+
+          {/* Branding + accroche */}
+          <div className="md:col-span-1">
+            <Link href="/" className="inline-block text-2xl font-bold gradient-text mb-3">
               {COMPANY.name}
             </Link>
-            <p className="text-[var(--color-gray-400)] mb-6 leading-relaxed">
-              {COMPANY.description}
+            <p className="text-[var(--color-gray-400)] leading-relaxed mb-6 max-w-xs">
+              Concepteur de sites web indépendant à {COMPANY.city}. Je transforme vos idées en sites qui convertissent.
             </p>
+            <div className="flex flex-col gap-2 text-sm">
+              <a href={`tel:${COMPANY.phone.replace(/\s/g, "")}`} className="text-[var(--color-gray-400)] hover:text-white transition-colors">
+                {COMPANY.phone}
+              </a>
+              <a href={`mailto:${COMPANY.email}`} className="text-[var(--color-gray-400)] hover:text-white transition-colors">
+                {COMPANY.email}
+              </a>
+            </div>
           </div>
 
-          {/* Colonne 2 : Services */}
+          {/* Liens rapides */}
           <div>
-            <h3 className="text-lg font-semibold mb-5">Services</h3>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--color-gray-400)] mb-5">Navigation</h3>
             <ul className="space-y-3">
               {FOOTER_LINKS.services.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-[var(--color-gray-400)] hover:text-white transition-colors"
-                  >
+                  <Link href={link.href} className="text-[var(--color-gray-400)] hover:text-white transition-colors text-sm">
                     {link.label}
                   </Link>
                 </li>
               ))}
-            </ul>
-          </div>
-
-          {/* Colonne 3 : Entreprise */}
-          <div>
-            <h3 className="text-lg font-semibold mb-5">Entreprise</h3>
-            <ul className="space-y-3">
               {FOOTER_LINKS.company.map((link) => (
                 <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-[var(--color-gray-400)] hover:text-white transition-colors"
-                  >
+                  <Link href={link.href} className="text-[var(--color-gray-400)] hover:text-white transition-colors text-sm">
                     {link.label}
                   </Link>
                 </li>
@@ -57,92 +49,47 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Colonne 4 : Contact */}
+          {/* Zones + CTA */}
           <div>
-            <h3 className="text-lg font-semibold mb-5">Contact</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <Icon
-                  name="location"
-                  size={20}
-                  className="text-[var(--color-primary)] mt-0.5 flex-shrink-0"
-                />
-                <span className="text-[var(--color-gray-400)]">
-                  {COMPANY.address}
-                </span>
-              </li>
-              <li>
-                <a
-                  href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}
-                  className="flex items-center gap-3 text-[var(--color-gray-400)] hover:text-white transition-colors"
-                >
-                  <Icon
-                    name="phone"
-                    size={20}
-                    className="text-[var(--color-primary)]"
-                  />
-                  {COMPANY.phone}
-                </a>
-              </li>
-              <li>
-                <a
-                  href={`mailto:${COMPANY.email}`}
-                  className="flex items-center gap-3 text-[var(--color-gray-400)] hover:text-white transition-colors"
-                >
-                  <Icon
-                    name="mail"
-                    size={20}
-                    className="text-[var(--color-primary)]"
-                  />
-                  {COMPANY.email}
-                </a>
-              </li>
+            <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--color-gray-400)] mb-5">Zones d&apos;intervention</h3>
+            <ul className="flex flex-wrap gap-x-4 gap-y-2 mb-8">
+              {FOOTER_LINKS.zones.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-[var(--color-gray-400)] hover:text-white transition-colors text-sm">
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
+            <Link
+              href="/contact"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--color-primary)] text-white text-sm font-semibold rounded-lg hover:bg-[var(--color-primary-dark)] transition-colors"
+            >
+              Demander un devis
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </Link>
           </div>
-        </div>
-      </div>
 
-      {/* Zones d'intervention - SEO local */}
-      <div className="border-t border-white/10">
-        <div className="container py-10">
-          <h3 className="text-lg font-semibold mb-5">
-            Nos zones d&apos;intervention
-          </h3>
-          <ul className="flex flex-wrap gap-x-6 gap-y-2">
-            {FOOTER_LINKS.zones.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-sm text-[var(--color-gray-400)] hover:text-white transition-colors"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
 
       {/* Copyright */}
       <div className="border-t border-white/10">
-        <div className="container py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-[var(--color-gray-400)] text-sm">
-              © {currentYear} {COMPANY.name}. Tous droits réservés.
-            </p>
-            <ul className="flex items-center gap-6 text-sm">
-              {FOOTER_LINKS.legal.map((link) => (
-                <li key={link.href}>
-                  <Link
-                    href={link.href}
-                    className="text-[var(--color-gray-400)] hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div className="container py-5 flex flex-col md:flex-row items-center justify-between gap-3">
+          <p className="text-[var(--color-gray-500)] text-xs">
+            © {currentYear} {COMPANY.name}. Tous droits réservés.
+          </p>
+          <ul className="flex items-center gap-5 text-xs">
+            {FOOTER_LINKS.legal.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="text-[var(--color-gray-500)] hover:text-white transition-colors">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </footer>

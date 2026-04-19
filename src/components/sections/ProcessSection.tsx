@@ -1,4 +1,4 @@
-import { Section, SectionHeader, Icon, type IconName } from "@/components/ui";
+import { Section, SectionHeader, Icon, ScrollReveal, type IconName } from "@/components/ui";
 import { PROCESS_STEPS } from "@/data/constants";
 
 export function ProcessSection() {
@@ -19,7 +19,7 @@ export function ProcessSection() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {PROCESS_STEPS.map((step, index) => (
-            <div key={step.id} className="relative">
+            <ScrollReveal key={step.id} delay={(index % 3) as 0 | 1 | 2 | 3} className="relative">
               {/* Card */}
               <div className="bg-white rounded-xl p-6 shadow-sm border border-[var(--color-gray-100)] h-full flex flex-col items-center text-center relative z-10">
                 {/* Numéro */}
@@ -62,7 +62,7 @@ export function ProcessSection() {
                   </svg>
                 </div>
               )}
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

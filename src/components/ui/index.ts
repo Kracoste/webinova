@@ -11,3 +11,4 @@ export { Card, CardHeader, CardTitle, CardContent, CardFooter } from "./Card";
 export { Badge } from "./Badge";
 export { Section, SectionHeader } from "./Section";
 export { Icon, type IconName } from "./Icon";
+export { ScrollReveal } from "./ScrollReveal";

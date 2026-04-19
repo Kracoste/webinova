@@ -1,5 +1,6 @@
 import {
   HeroSection,
+  AboutSection,
   SocialProofSection,
   PricingSection,
   ProcessSection,
@@ -22,6 +23,7 @@ export default function HomePage() {
       />
 
       <HeroSection />
+      <AboutSection />
       <SocialProofSection />
       <PricingSection />
       <ProcessSection />
