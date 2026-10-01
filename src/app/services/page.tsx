@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Section, SectionHeader, Card, CardTitle, CardContent, LinkButton, Icon, Badge } from "@/components/ui";
-import { CTASection } from "@/components/sections";
+import { Section, SectionHeader, Card, CardTitle, CardContent, LinkButton, Icon } from "@/components/ui";
+import { CTASection, PageHero } from "@/components/sections";
 import { generatePageMetadata, generateServiceSchema } from "@/lib/seo";
 
 export const metadata: Metadata = generatePageMetadata({
@@ -105,20 +105,15 @@ export default function ServicesPage() {
       ))}
 
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-gradient-to-b from-[var(--color-gray-50)] to-white">
-        <div className="container text-center">
-          <Badge variant="primary" className="mb-4">
-            Nos services
-          </Badge>
-          <h1 className="mb-6">
-            Des solutions web <span className="gradient-text">sur-mesure</span>
-          </h1>
-          <p className="text-xl text-[var(--color-gray-600)] max-w-3xl mx-auto">
-            Que vous ayez besoin d&apos;un site vitrine, d&apos;une boutique en ligne ou d&apos;une
-            application web, nous créons des solutions adaptées à vos objectifs.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Services"
+        title={
+          <>
+            Des solutions web <span className="serif-accent gradient-text-light">sur-mesure</span>
+          </>
+        }
+        description="Site vitrine, boutique en ligne ou application web : je crée des solutions adaptées à vos objectifs, avec des tarifs affichés."
+      />
 
       {/* Services */}
       <Section background="white">

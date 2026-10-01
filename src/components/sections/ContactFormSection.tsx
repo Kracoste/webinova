@@ -5,6 +5,7 @@ import { Section, SectionHeader, Input, Textarea, Select, Button, Icon } from "@
 import { COMPANY, PROJECT_TYPES, BUDGET_RANGES } from "@/data/constants";
 import { isValidEmail, isValidFrenchPhone } from "@/lib/utils";
 import type { ContactFormData, ApiResponse } from "@/types";
+import { trackEvent } from "@/components/analytics/ClickTracker";
 
 interface FormErrors {
   name?: string;
@@ -80,6 +81,10 @@ export function ContactFormSection() {
       setSubmitResult(result);
 
       if (result.success) {
+        trackEvent("generate_lead", {
+          project_type: formData.projectType,
+          budget: formData.budget || "non précisé",
+        });
         setFormData({
           name: "",
           email: "",
@@ -110,69 +115,88 @@ export function ContactFormSection() {
     }
   };
 
+  const contactItems = [
+    {
+      icon: "phone" as const,
+      label: "Téléphone",
+      value: COMPANY.phone,
+      href: `tel:${COMPANY.phone.replace(/\s/g, "")}`,
+      track: "contact_appel",
+    },
+    {
+      icon: "mail" as const,
+      label: "Email",
+      value: COMPANY.email,
+      href: `mailto:${COMPANY.email}`,
+      track: "contact_email",
+    },
+    { icon: "location" as const, label: "Adresse", value: COMPANY.address },
+  ];
+
   return (
-    <Section id="contact" background="gray">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <Section id="contact" background="gray" className="overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 bg-grid mask-radial opacity-60" aria-hidden="true" />
+      <div className="relative grid grid-cols-1 gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
         {/* Colonne gauche : Infos */}
         <div>
           <SectionHeader
             subtitle="Contact"
-            title="Parlons de votre projet"
+            title={
+              <>
+                Parlons de <span className="serif-accent gradient-text">votre projet</span>
+              </>
+            }
             description="Remplissez le formulaire et recevez un devis personnalisé sous 48h. C'est gratuit et sans engagement."
             centered={false}
+            className="mb-10"
           />
 
-          <div className="space-y-6 mt-8">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center flex-shrink-0">
-                <Icon name="mail" size={24} className="text-[var(--color-primary)]" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-[var(--color-secondary)] mb-1">
-                  Email
-                </h4>
-                <a
-                  href={`mailto:${COMPANY.email}`}
-                  className="text-[var(--color-gray-600)] hover:text-[var(--color-primary)]"
-                >
-                  {COMPANY.email}
-                </a>
-              </div>
-            </div>
+          <ul className="space-y-3">
+            {contactItems.map((item) => {
+              const content = (
+                <>
+                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[linear-gradient(135deg,var(--color-primary),var(--color-accent))] text-white shadow-[var(--shadow-glow)]">
+                    <Icon name={item.icon} size={22} />
+                  </span>
+                  <span className="min-w-0">
+                    <span className="block text-xs font-medium uppercase tracking-[0.12em] text-[var(--color-gray-400)]">
+                      {item.label}
+                    </span>
+                    <span className="block truncate font-semibold text-[var(--color-secondary)]">{item.value}</span>
+                  </span>
+                </>
+              );
+              return (
+                <li key={item.label}>
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      data-track={item.track}
+                      className="flex items-center gap-4 rounded-2xl border border-[var(--color-gray-200)] bg-white p-4 shadow-[var(--shadow-sm)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[var(--shadow-md)]"
+                    >
+                      {content}
+                    </a>
+                  ) : (
+                    <div className="flex items-center gap-4 rounded-2xl border border-[var(--color-gray-200)] bg-white p-4 shadow-[var(--shadow-sm)]">
+                      {content}
+                    </div>
+                  )}
+                </li>
+              );
+            })}
+          </ul>
 
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center flex-shrink-0">
-                <Icon name="phone" size={24} className="text-[var(--color-primary)]" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-[var(--color-secondary)] mb-1">
-                  Téléphone
-                </h4>
-                <a
-                  href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}
-                  className="text-[var(--color-gray-600)] hover:text-[var(--color-primary)]"
-                >
-                  {COMPANY.phone}
-                </a>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-[var(--color-primary)]/10 flex items-center justify-center flex-shrink-0">
-                <Icon name="location" size={24} className="text-[var(--color-primary)]" />
-              </div>
-              <div>
-                <h4 className="font-semibold text-[var(--color-secondary)] mb-1">
-                  Adresse
-                </h4>
-                <p className="text-[var(--color-gray-600)]">{COMPANY.address}</p>
-              </div>
-            </div>
+          <div className="mt-8 flex items-start gap-3 rounded-2xl border border-[var(--color-primary)]/15 bg-[var(--color-primary)]/[0.04] p-5">
+            <Icon name="clock" size={20} className="mt-0.5 shrink-0 text-[var(--color-primary)]" />
+            <p className="text-sm leading-relaxed text-[var(--color-gray-600)]">
+              <span className="font-semibold text-[var(--color-secondary)]">Pressé ?</span> Un appel de quelques
+              minutes suffit souvent pour vous donner une première estimation.
+            </p>
           </div>
         </div>
 
         {/* Colonne droite : Formulaire */}
-        <div className="bg-white rounded-2xl p-8 shadow-lg border border-[var(--color-gray-100)]">
+        <div className="rounded-[28px] border border-[var(--color-gray-200)] bg-white p-6 shadow-[var(--shadow-xl)] sm:p-10">
           {submitResult?.success ? (
             <div className="text-center py-8">
               <div className="w-16 h-16 bg-[var(--color-success)]/10 rounded-full flex items-center justify-center mx-auto mb-6">
@@ -284,7 +308,8 @@ export function ContactFormSection() {
                 isLoading={isSubmitting}
                 className="mt-6"
               >
-                Envoyer ma demande
+                Recevoir mon devis gratuit
+                <Icon name="arrow-right" size={18} />
               </Button>
 
               <p className="text-center text-[var(--color-gray-400)] text-sm mt-4">

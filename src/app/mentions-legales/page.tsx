@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { Section, SectionHeader } from "@/components/ui";
-import { COMPANY } from "@/data/constants";
+import { COMPANY, LEGAL } from "@/data/constants";
 
 export const metadata: Metadata = {
   title: "Mentions Légales - Éditeur et Hébergeur du Site | Webonia",
@@ -59,12 +59,16 @@ export default function MentionsLegalesPage() {
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <p className="text-[var(--color-gray-600)] mb-3">
-                    <span className="font-semibold text-[var(--color-secondary)]">Nom de l&apos;entreprise :</span><br />
+                    <span className="font-semibold text-[var(--color-secondary)]">Éditeur :</span><br />
+                    {LEGAL.owner}, entrepreneur individuel (EI)
+                  </p>
+                  <p className="text-[var(--color-gray-600)] mb-3">
+                    <span className="font-semibold text-[var(--color-secondary)]">Nom commercial :</span><br />
                     {COMPANY.name}
                   </p>
                   <p className="text-[var(--color-gray-600)] mb-3">
                     <span className="font-semibold text-[var(--color-secondary)]">Statut juridique :</span><br />
-                    Auto-entrepreneur (Micro-entreprise)
+                    {LEGAL.legalForm}
                   </p>
                   <p className="text-[var(--color-gray-600)] mb-3">
                     <span className="font-semibold text-[var(--color-secondary)]">Responsable de publication :</span><br />
@@ -72,7 +76,15 @@ export default function MentionsLegalesPage() {
                   </p>
                   <p className="text-[var(--color-gray-600)]">
                     <span className="font-semibold text-[var(--color-secondary)]">SIRET :</span><br />
-                    94847157800013
+                    {LEGAL.siret}
+                  </p>
+                  <p className="text-[var(--color-gray-600)] mt-3">
+                    <span className="font-semibold text-[var(--color-secondary)]">Immatriculation :</span><br />
+                    {LEGAL.register}
+                  </p>
+                  <p className="text-[var(--color-gray-600)] mt-3">
+                    <span className="font-semibold text-[var(--color-secondary)]">TVA :</span><br />
+                    {LEGAL.vat}
                   </p>
                 </div>
                 <div>

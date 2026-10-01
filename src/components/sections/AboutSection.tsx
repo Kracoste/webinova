@@ -1,82 +1,92 @@
-import { ScrollReveal } from "@/components/ui";
+import { ScrollReveal, Eyebrow, LinkButton, Icon } from "@/components/ui";
+import { Tilt } from "@/components/motion";
 import { COMPANY } from "@/data/constants";
 
 export function AboutSection() {
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="overflow-hidden bg-white py-24 md:py-32">
       <div className="container">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
-          {/* Photo + décorations */}
+        <div className="grid grid-cols-1 items-center gap-16 lg:grid-cols-2">
+          {/* Carte portrait 3D */}
           <ScrollReveal className="relative flex justify-center">
-            <div className="relative w-72 h-72 md:w-96 md:h-96">
-              {/* Cercle décoratif */}
-              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[var(--color-primary)]/20 to-[var(--color-accent)]/20" aria-hidden="true" />
-              {/* Initiales en attendant une vraie photo */}
-              <div className="absolute inset-4 rounded-full bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-accent)] flex items-center justify-center text-white text-6xl font-bold">
-                HA
-              </div>
-              {/* Badge expérience */}
-              <div className="absolute -right-4 top-8 bg-white rounded-xl shadow-lg px-4 py-3 text-center">
-                <p className="text-2xl font-bold gradient-text">5+</p>
-                <p className="text-xs text-[var(--color-gray-500)]">ans d&apos;expérience</p>
-              </div>
-              {/* Badge projets */}
-              <div className="absolute -left-4 bottom-8 bg-white rounded-xl shadow-lg px-4 py-3 text-center">
-                <p className="text-2xl font-bold gradient-text">50+</p>
-                <p className="text-xs text-[var(--color-gray-500)]">projets livrés</p>
-              </div>
+            <div className="absolute h-[420px] w-[420px] rounded-full border border-dashed border-[var(--color-gray-200)] animate-spin-slow" aria-hidden="true">
+              <span className="absolute left-1/2 top-0 h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[var(--color-primary)] shadow-[0_0_20px_rgba(36,71,224,0.6)]" />
             </div>
+
+            <Tilt max={10} className="relative w-full max-w-[340px]" innerClassName="rounded-[28px]">
+              <div className="grain relative aspect-[4/5] overflow-hidden rounded-[28px] bg-[var(--night-900)] p-8 text-white shadow-[var(--shadow-xl)]">
+                <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-[radial-gradient(closest-side,rgba(109,93,252,0.6),transparent)]" aria-hidden="true" />
+                <div className="absolute -bottom-20 -left-10 h-64 w-64 rounded-full bg-[radial-gradient(closest-side,rgba(36,71,224,0.6),transparent)]" aria-hidden="true" />
+                <div className="bg-grid-dark absolute inset-0 opacity-60" aria-hidden="true" />
+
+                <div className="relative flex h-full flex-col justify-between">
+                  <div className="flex items-center justify-between">
+                    <span className="font-mono text-xs uppercase tracking-[0.18em] text-white/50">Concepteur web</span>
+                    <span className="flex items-center gap-1.5 rounded-full bg-emerald-400/15 px-2.5 py-1 text-[11px] font-medium text-emerald-300">
+                      <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                      Indépendant
+                    </span>
+                  </div>
+
+                  <div className="flex h-32 w-32 items-center justify-center self-center rounded-full bg-[linear-gradient(135deg,var(--color-primary),var(--color-accent))] text-5xl font-semibold tracking-[-0.04em] shadow-[0_20px_60px_-10px_rgba(36,71,224,0.8)]">
+                    HA
+                  </div>
+
+                  <div>
+                    <p className="serif-accent text-4xl text-white">Hugo Allou</p>
+                    <p className="mt-1 flex items-center gap-1.5 text-sm text-white/55">
+                      <Icon name="location" size={14} />
+                      {COMPANY.city}, {COMPANY.region}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Tilt>
           </ScrollReveal>
 
           {/* Texte */}
           <div>
             <ScrollReveal>
-              <p className="text-sm font-semibold text-[var(--color-primary)] uppercase tracking-widest mb-3">
-                Qui suis-je ?
-              </p>
+              <Eyebrow className="mb-5">Qui suis-je ?</Eyebrow>
               <h2 className="mb-6">
-                Hugo Allou,{" "}
-                <span className="gradient-text">concepteur web</span>{" "}
-                indépendant
+                Un concepteur web <span className="serif-accent gradient-text">près de chez vous</span>, pas une plateforme
               </h2>
             </ScrollReveal>
 
             <ScrollReveal delay={1}>
-              <p className="text-[var(--color-gray-600)] mb-5 leading-relaxed">
-                Basé à {COMPANY.city}, je crée des sites internet sur-mesure pour les artisans, commerçants et TPE qui veulent une présence en ligne qui travaille vraiment pour eux.
+              <p className="mb-5 text-lg leading-relaxed text-[var(--color-gray-600)]">
+                Basé à {COMPANY.city}, je crée des sites internet sur-mesure pour les artisans, commerçants et TPE
+                qui veulent une présence en ligne qui travaille vraiment pour eux.
               </p>
-              <p className="text-[var(--color-gray-600)] mb-8 leading-relaxed">
-                Mon approche : comprendre votre métier, vos clients, vos objectifs — et livrer un site qui convertit, pas juste un joli design.
+              <p className="mb-8 text-lg leading-relaxed text-[var(--color-gray-600)]">
+                Mon approche : comprendre votre métier, vos clients, vos objectifs — et livrer un site qui convertit,
+                pas juste un joli design. Vous parlez à la même personne du premier appel à la mise en ligne.
               </p>
             </ScrollReveal>
 
             <ScrollReveal delay={2}>
-              <div className="flex flex-wrap gap-3 mb-8">
-                {["Next.js", "TypeScript", "Tailwind CSS", "SEO", "Performance"].map((skill) => (
-                  <span key={skill} className="px-3 py-1.5 bg-[var(--color-primary)]/10 text-[var(--color-primary)] text-sm font-medium rounded-full">
-                    {skill}
-                  </span>
+              <ul className="mb-10 grid grid-cols-1 gap-3 sm:grid-cols-2">
+                {[
+                  "Un seul interlocuteur",
+                  "Rendez-vous chez vous ou en visio",
+                  "Code sur-mesure, sans template",
+                  "Le site vous appartient une fois payé",
+                ].map((item) => (
+                  <li key={item} className="flex items-center gap-3 text-[var(--color-gray-700)]">
+                    <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)]">
+                      <Icon name="check" size={14} />
+                    </span>
+                    {item}
+                  </li>
                 ))}
-              </div>
+              </ul>
 
-              {/* Signature SVG */}
-              <div className="flex items-center gap-4">
-                <svg viewBox="0 0 200 60" className="w-40 h-14 text-[var(--color-secondary)]" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-label="Signature Hugo Allou">
-                  <path d="M10 45 Q20 10 35 30 Q45 45 55 20" />
-                  <path d="M55 20 Q65 5 75 35 Q80 45 90 25" />
-                  <path d="M105 40 Q115 15 125 38 Q128 42 132 38" />
-                  <path d="M140 38 Q150 12 160 38 Q163 44 168 38" />
-                  <path d="M10 52 Q100 54 190 50" strokeOpacity="0.3" />
-                </svg>
-                <div>
-                  <p className="font-semibold text-[var(--color-secondary)]">Hugo Allou</p>
-                  <p className="text-sm text-[var(--color-gray-400)]">Concepteur web indépendant</p>
-                </div>
-              </div>
+              <LinkButton href="/a-propos" variant="outline">
+                En savoir plus sur moi
+                <Icon name="arrow-right" size={16} />
+              </LinkButton>
             </ScrollReveal>
           </div>
-
         </div>
       </div>
     </section>

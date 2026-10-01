@@ -9,6 +9,7 @@ export { Textarea, type TextareaProps } from "./Textarea";
 export { Select, type SelectProps, type SelectOption } from "./Select";
 export { Card, CardHeader, CardTitle, CardContent, CardFooter } from "./Card";
 export { Badge } from "./Badge";
-export { Section, SectionHeader } from "./Section";
+export { Section, SectionHeader, Eyebrow } from "./Section";
 export { Icon, type IconName } from "./Icon";
 export { ScrollReveal } from "./ScrollReveal";
+export { Logo, LogoMark } from "./Logo";

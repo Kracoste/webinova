@@ -33,16 +33,18 @@ export function BlogGrid({ posts }: BlogGridProps) {
   return (
     <>
       {/* Catégories */}
-      <Section background="white" className="!pt-0 !pb-8">
-        <div className="flex flex-wrap items-center justify-center gap-3">
+      <Section background="white" className="!pt-12 !pb-12 md:!pt-16">
+        <div className="flex flex-wrap items-center justify-center gap-2" role="group" aria-label="Filtrer par catégorie">
           {categories.map((category) => (
             <button
               key={category}
+              type="button"
               onClick={() => setActiveCategory(category)}
-              className={`px-5 py-2 rounded-full font-medium transition-colors ${
+              aria-pressed={activeCategory === category}
+              className={`rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300 ${
                 activeCategory === category
-                  ? "bg-[var(--color-primary)] text-white"
-                  : "bg-[var(--color-gray-100)] text-[var(--color-gray-600)] hover:bg-[var(--color-gray-200)]"
+                  ? "bg-[var(--color-secondary)] text-white shadow-[var(--shadow-md)]"
+                  : "border border-[var(--color-gray-200)] text-[var(--color-gray-600)] hover:border-[var(--color-gray-400)]"
               }`}
             >
               {category}

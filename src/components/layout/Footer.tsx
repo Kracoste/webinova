@@ -1,47 +1,70 @@
 import Link from "next/link";
-import { COMPANY, FOOTER_LINKS } from "@/data/constants";
+import { COMPANY, FOOTER_LINKS, LEGAL, SERVICE_AREAS } from "@/data/constants";
+import { Logo } from "@/components/ui";
+import { Icon } from "@/components/ui/Icon";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
+  const phoneHref = `tel:${COMPANY.phone.replace(/\s/g, "")}`;
 
   return (
-    <footer className="bg-[var(--color-secondary)] text-white">
-      {/* Section principale */}
-      <div className="container py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+    <footer className="grain relative isolate overflow-hidden bg-[var(--night-950)] pb-24 text-white lg:pb-0">
+      <div
+        className="absolute left-1/2 top-0 -z-10 h-[420px] w-[900px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(closest-side,rgba(36,71,224,0.35),transparent)] blur-2xl"
+        aria-hidden="true"
+      />
 
-          {/* Branding + accroche */}
-          <div className="md:col-span-1">
-            <Link href="/" className="inline-block text-2xl font-bold gradient-text mb-3">
-              {COMPANY.name}
+      <div className="container pt-20">
+        {/* Accroche */}
+        <div className="flex flex-col items-start justify-between gap-8 border-b border-white/[0.08] pb-14 md:flex-row md:items-end">
+          <p className="max-w-2xl text-3xl font-semibold leading-[1.1] tracking-[-0.035em] text-white md:text-5xl">
+            Un projet en tête ?{" "}
+            <span className="serif-accent gradient-text-light">Parlons-en.</span>
+          </p>
+          <div className="flex flex-wrap gap-3">
+            <Link
+              href="/contact"
+              data-track="footer_devis"
+              className="btn-shine inline-flex h-12 items-center gap-2 rounded-full bg-white px-6 font-semibold text-[var(--color-secondary)] transition-transform hover:-translate-y-0.5"
+            >
+              Demander un devis
+              <Icon name="arrow-right" size={16} />
             </Link>
-            <p className="text-[var(--color-gray-400)] leading-relaxed mb-6 max-w-xs">
-              Concepteur de sites web indépendant à {COMPANY.city}. Je transforme vos idées en sites qui convertissent.
+            <a
+              href={phoneHref}
+              data-track="footer_appel"
+              className="inline-flex h-12 items-center gap-2 rounded-full border border-white/15 px-6 font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              <Icon name="phone" size={16} />
+              {COMPANY.phone}
+            </a>
+          </div>
+        </div>
+
+        {/* Colonnes */}
+        <div className="grid grid-cols-1 gap-12 py-14 sm:grid-cols-2 lg:grid-cols-[1.3fr_1fr_1fr_1.4fr]">
+          <div>
+            <Link href="/" className="inline-block" aria-label={`${COMPANY.name} - Accueil`}>
+              <Logo gradientId="logo-footer" />
+            </Link>
+            <p className="mt-5 max-w-xs leading-relaxed text-white/50">
+              Concepteur de sites web indépendant à {COMPANY.city}. Des sites sur-mesure qui
+              transforment vos visiteurs en clients.
             </p>
-            <div className="flex flex-col gap-2 text-sm">
-              <a href={`tel:${COMPANY.phone.replace(/\s/g, "")}`} className="text-[var(--color-gray-400)] hover:text-white transition-colors">
-                {COMPANY.phone}
-              </a>
-              <a href={`mailto:${COMPANY.email}`} className="text-[var(--color-gray-400)] hover:text-white transition-colors">
+            <div className="mt-6 flex flex-col gap-2 text-sm">
+              <a href={`mailto:${COMPANY.email}`} className="text-white/60 transition-colors hover:text-white">
                 {COMPANY.email}
               </a>
+              <span className="text-white/40">{COMPANY.address}</span>
             </div>
           </div>
 
-          {/* Liens rapides */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--color-gray-400)] mb-5">Navigation</h3>
+            <h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.16em] text-white/40">Services</h3>
             <ul className="space-y-3">
               {FOOTER_LINKS.services.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-[var(--color-gray-400)] hover:text-white transition-colors text-sm">
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-              {FOOTER_LINKS.company.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="text-[var(--color-gray-400)] hover:text-white transition-colors text-sm">
+                  <Link href={link.href} className="text-sm text-white/65 transition-colors hover:text-white">
                     {link.label}
                   </Link>
                 </li>
@@ -49,48 +72,61 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Zones + CTA */}
           <div>
-            <h3 className="text-sm font-semibold uppercase tracking-wider text-[var(--color-gray-400)] mb-5">Zones d&apos;intervention</h3>
-            <ul className="flex flex-wrap gap-x-4 gap-y-2 mb-8">
-              {FOOTER_LINKS.zones.map((link) => (
+            <h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.16em] text-white/40">Webonia</h3>
+            <ul className="space-y-3">
+              {[{ label: "Réalisations", href: "/realisations" }, ...FOOTER_LINKS.company].map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-[var(--color-gray-400)] hover:text-white transition-colors text-sm">
+                  <Link href={link.href} className="text-sm text-white/65 transition-colors hover:text-white">
                     {link.label}
                   </Link>
                 </li>
               ))}
             </ul>
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-[var(--color-primary)] text-white text-sm font-semibold rounded-lg hover:bg-[var(--color-primary-dark)] transition-colors"
-            >
-              Demander un devis
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </Link>
           </div>
 
+          <div>
+            <h3 className="mb-5 text-xs font-semibold uppercase tracking-[0.16em] text-white/40">
+              Création de site internet à
+            </h3>
+            <ul className="flex flex-wrap gap-2">
+              {SERVICE_AREAS.map((area) => (
+                <li key={area.slug}>
+                  <Link
+                    href={`/creation-site-internet/${area.slug}`}
+                    className="inline-block rounded-full border border-white/10 px-3 py-1.5 text-sm text-white/65 transition-colors hover:border-white/30 hover:text-white"
+                  >
+                    {area.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
-      </div>
 
-      {/* Copyright */}
-      <div className="border-t border-white/10">
-        <div className="container py-5 flex flex-col md:flex-row items-center justify-between gap-3">
-          <p className="text-[var(--color-gray-500)] text-xs">
-            © {currentYear} {COMPANY.name}. Tous droits réservés.
+        {/* Copyright */}
+        <div className="flex flex-col items-center justify-between gap-3 border-t border-white/[0.08] py-6 md:flex-row">
+          <p className="text-xs text-white/40">
+            © {currentYear} {COMPANY.name} · {LEGAL.owner} EI · SIRET {LEGAL.siret}
           </p>
-          <ul className="flex items-center gap-5 text-xs">
+          <ul className="flex flex-wrap items-center justify-center gap-5 text-xs">
             {FOOTER_LINKS.legal.map((link) => (
               <li key={link.href}>
-                <Link href={link.href} className="text-[var(--color-gray-500)] hover:text-white transition-colors">
+                <Link href={link.href} className="text-white/40 transition-colors hover:text-white">
                   {link.label}
                 </Link>
               </li>
             ))}
           </ul>
         </div>
+      </div>
+
+      {/* Logo géant en filigrane */}
+      <div
+        className="pointer-events-none select-none overflow-hidden text-center text-[22vw] font-semibold leading-[0.8] tracking-[-0.06em] text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.08)] mask-fade-b"
+        aria-hidden="true"
+      >
+        {COMPANY.name}
       </div>
     </footer>
   );

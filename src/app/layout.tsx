@@ -1,7 +1,8 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
-import { Header, Footer } from "@/components/layout";
+import { Header, Footer, StickyCTA } from "@/components/layout";
+import { ClickTracker } from "@/components/analytics/ClickTracker";
 import { generatePageMetadata, generateLocalBusinessSchema } from "@/lib/seo";
 import { COMPANY } from "@/data/constants";
 import "./globals.css";
@@ -15,6 +16,14 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+  display: "swap",
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  subsets: ["latin"],
+  weight: "400",
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -47,7 +56,7 @@ export const metadata: Metadata = generatePageMetadata({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#2563eb",
+  themeColor: "#070b18",
 };
 
 export default function RootLayout({
@@ -58,8 +67,6 @@ export default function RootLayout({
   return (
     <html lang="fr">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         {/* Google Tag Manager */}
         <script
           dangerouslySetInnerHTML={{
@@ -79,7 +86,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} ${instrumentSerif.variable} antialiased`}
       >
         {/* Google Tag Manager (noscript) */}
         <noscript>
@@ -94,6 +101,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <Header />
         <main id="main-content">{children}</main>
         <Footer />
+        <StickyCTA />
+        <ClickTracker />
         <Analytics />
       </body>
     </html>

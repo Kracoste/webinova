@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { ContactFormSection, FAQSection } from "@/components/sections";
+import { ContactFormSection, FAQSection, PageHero } from "@/components/sections";
 import { generatePageMetadata } from "@/lib/seo";
-import { Badge } from "@/components/ui";
+import { Icon } from "@/components/ui";
+import { COMPANY } from "@/data/constants";
 
 export const metadata: Metadata = generatePageMetadata({
   title: "Contact – Devis Gratuit Création Site Internet à Bressuire",
@@ -21,21 +22,24 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-8 bg-gradient-to-b from-[var(--color-gray-50)] to-white">
-        <div className="container text-center">
-          <Badge variant="primary" className="mb-4">
-            Contact
-          </Badge>
-          <h1 className="mb-6">
-            Parlons de votre <span className="gradient-text">projet</span>
-          </h1>
-          <p className="text-xl text-[var(--color-gray-600)] max-w-3xl mx-auto">
-            Vous avez un projet en tête ? Remplissez le formulaire ci-dessous et
-            recevez un devis personnalisé sous 48h. C&apos;est gratuit et sans
-            engagement.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Contact"
+        title={
+          <>
+            Un projet ? <span className="serif-accent gradient-text-light">Parlons-en.</span>
+          </>
+        }
+        description="Remplissez le formulaire ci-dessous ou appelez-moi directement. Devis personnalisé sous 48h, gratuit et sans engagement."
+      >
+        <a
+          href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}
+          data-track="contact_hero_appel"
+          className="inline-flex h-12 items-center gap-2 rounded-full border border-white/15 bg-white/[0.06] px-6 font-semibold text-white backdrop-blur transition-colors hover:bg-white/[0.12]"
+        >
+          <Icon name="phone" size={18} />
+          {COMPANY.phone}
+        </a>
+      </PageHero>
 
       <ContactFormSection />
       <FAQSection />

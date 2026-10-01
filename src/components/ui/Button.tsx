@@ -1,8 +1,6 @@
 import { forwardRef, type ButtonHTMLAttributes } from "react";
 import { cn } from "@/lib/utils";
-
-type ButtonVariant = "primary" | "secondary" | "outline" | "ghost";
-type ButtonSize = "sm" | "md" | "lg";
+import { buttonClasses, type ButtonVariant, type ButtonSize } from "./buttonStyles";
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: ButtonVariant;
@@ -10,23 +8,6 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   isLoading?: boolean;
   fullWidth?: boolean;
 }
-
-const variantStyles: Record<ButtonVariant, string> = {
-  primary:
-    "bg-[var(--color-primary)] text-white hover:bg-[var(--color-primary-dark)] shadow-md hover:shadow-lg",
-  secondary:
-    "bg-[var(--color-secondary)] text-white hover:bg-[var(--color-secondary-light)]",
-  outline:
-    "border-2 border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white",
-  ghost:
-    "text-[var(--color-gray-600)] hover:text-[var(--color-primary)] hover:bg-[var(--color-gray-100)]",
-};
-
-const sizeStyles: Record<ButtonSize, string> = {
-  sm: "px-4 py-2 text-sm",
-  md: "px-6 py-3 text-base",
-  lg: "px-8 py-4 text-lg",
-};
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
@@ -46,13 +27,8 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         className={cn(
-          "inline-flex items-center justify-center gap-2 font-semibold rounded-lg",
-          "transition-all duration-200 ease-out",
-          "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:ring-offset-2",
-          "disabled:opacity-50 disabled:cursor-not-allowed",
-          variantStyles[variant],
-          sizeStyles[size],
-          fullWidth && "w-full",
+          buttonClasses({ variant, size, fullWidth }),
+          "disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0",
           className
         )}
         disabled={disabled || isLoading}

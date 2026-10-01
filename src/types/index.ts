@@ -38,6 +38,7 @@ export interface Project {
   title: string;
   description: string;
   thumbnail: string;
+  mobileThumbnail?: string;
   category: string;
   url?: string;
   technologies: string[];

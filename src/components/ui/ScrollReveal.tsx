@@ -16,7 +16,7 @@ export function ScrollReveal({ children, className = "", delay = 0 }: Props) {
     if (!el) return;
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) { el.classList.add("visible"); observer.unobserve(el); } },
-      { threshold: 0.15 }
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
     );
     observer.observe(el);
     return () => observer.disconnect();

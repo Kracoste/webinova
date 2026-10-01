@@ -12,6 +12,10 @@ export type IconName =
   | "mail"
   | "location"
   | "arrow-right"
+  | "arrow-up-right"
+  | "bolt"
+  | "shield"
+  | "clock"
   | "menu"
   | "close"
   | "chevron-down"
@@ -84,6 +88,18 @@ const iconPaths: Record<IconName, ReactNode> = {
       strokeLinejoin="round"
       d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
     />
+  ),
+  "arrow-up-right": (
+    <path strokeLinecap="round" strokeLinejoin="round" d="M7 17L17 7M17 7H8M17 7v9" />
+  ),
+  bolt: (
+    <path strokeLinecap="round" strokeLinejoin="round" d="M13 2L4.5 13.5H11L10 22l8.5-11.5H12L13 2z" />
+  ),
+  shield: (
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 3l7.5 3v5.25c0 4.6-3.2 8.4-7.5 9.75-4.3-1.35-7.5-5.15-7.5-9.75V6L12 3zm-3 9l2 2 4-4" />
+  ),
+  clock: (
+    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6l4 2m5-2a9 9 0 11-18 0 9 9 0 0118 0z" />
   ),
   "arrow-right": (
     <path

@@ -21,7 +21,7 @@ export function generatePageMetadata({
   description,
   keywords = [],
   path = "",
-  ogImage = "/og-image.jpg",
+  ogImage = "/og-image.png",
   noIndex = false,
 }: GenerateMetadataOptions): Metadata {
   const fullTitle = path === "" ? title : `${title} | ${COMPANY.name}`;
@@ -92,7 +92,7 @@ export function generateLocalBusinessSchema() {
     url: BASE_URL,
     telephone: COMPANY.phone,
     email: COMPANY.email,
-    image: `${BASE_URL}/og-image.jpg`,
+    image: `${BASE_URL}/og-image.png`,
     logo: `${BASE_URL}/logo.png`,
     priceRange: "€€",
     currenciesAccepted: "EUR",

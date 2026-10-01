@@ -1,5 +1,8 @@
 import {
   HeroSection,
+  MarqueeBand,
+  ShowcaseSection,
+  BenefitsSection,
   AboutSection,
   SocialProofSection,
   PricingSection,
@@ -23,10 +26,13 @@ export default function HomePage() {
       />
 
       <HeroSection />
-      <AboutSection />
+      <MarqueeBand />
+      <ShowcaseSection />
+      <BenefitsSection />
       <SocialProofSection />
       <PricingSection />
       <ProcessSection />
+      <AboutSection />
       <FAQSection />
       <CTASection />
       <ContactFormSection />

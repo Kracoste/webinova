@@ -8,3 +8,7 @@ export { CTASection } from "./CTASection";
 export { ContactFormSection } from "./ContactFormSection";
 export { ProjectsGrid } from "./ProjectsGrid";
 export { BlogGrid } from "./BlogGrid";
+export { ShowcaseSection } from "./ShowcaseSection";
+export { BenefitsSection } from "./BenefitsSection";
+export { MarqueeBand } from "./MarqueeBand";
+export { PageHero } from "./PageHero";

@@ -2,6 +2,7 @@ import type {
   NavLink,
   ServicePackage,
   Testimonial,
+  Project,
   ProcessStep,
   FAQItem,
   Stat,
@@ -24,6 +25,16 @@ export const COMPANY = {
   region: "Deux-Sèvres",
   latitude: 46.8414,
   longitude: -0.4897,
+} as const;
+
+// Identité légale (CGV, mentions légales, footer)
+export const LEGAL = {
+  owner: "Hugo Allou",
+  legalForm: "Entrepreneur individuel (EI) – micro-entreprise",
+  siren: "948 471 578",
+  siret: "948 471 578 00013",
+  register: "Registre national des entreprises (RNE)",
+  vat: "TVA non applicable, article 293 B du CGI",
 } as const;
 
 // Zones géographiques desservies (pour SEO local + pages villes)
@@ -199,45 +210,70 @@ export const SERVICE_PACKAGES: ServicePackage[] = [
 // TÉMOIGNAGES
 // ============================================
 
-export const TESTIMONIALS: Testimonial[] = [
+// Uniquement de vrais avis clients (nom réel + accord du client).
+// La section témoignages s'affiche automatiquement dès que ce tableau n'est plus vide.
+// Exemple :
+// {
+//   id: "1",
+//   author: "Prénom Nom",
+//   role: "Gérant",
+//   company: "L'Antunes",
+//   content: "Ce que le client dit, avec ses mots.",
+//   rating: 5,
+// },
+export const TESTIMONIALS: Testimonial[] = [];
+
+// ============================================
+// RÉALISATIONS
+// ============================================
+
+export const PROJECTS: Project[] = [
   {
     id: "1",
-    author: "Marie Dupont",
-    role: "Fondatrice",
-    company: "Studio Créatif",
-    content:
-      "Webonia a transformé notre présence en ligne. Le site est magnifique, rapide et nos demandes de devis ont augmenté de 150% en 3 mois.",
-    rating: 5,
+    slug: "lantunes-restaurant",
+    title: "L'Antunes",
+    description:
+      "Site vitrine élégant pour un restaurant proposant une cuisine de saison et des vins vivants. Menus digitaux, intégration Google Maps et réseaux sociaux.",
+    thumbnail: "/images/projects/lantunes.webp",
+    mobileThumbnail: "/images/projects/lantunes-mobile.webp",
+    category: "Site Vitrine",
+    technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
+    url: "https://www.lantunes.fr/",
   },
   {
     id: "2",
-    author: "Thomas Bernard",
-    role: "Directeur",
-    company: "BTP Solutions",
-    content:
-      "Équipe professionnelle et réactive. Ils ont parfaitement compris nos besoins et livré un site qui reflète notre expertise.",
-    rating: 5,
+    slug: "atelier-lbf",
+    title: "Atelier LBF",
+    description:
+      "Boutique e-commerce pour un artisan fabricant de braséros en acier corten. Panier, paiement sécurisé et gestion des stocks intégrés.",
+    thumbnail: "/images/projects/atelier-lbf.webp",
+    mobileThumbnail: "/images/projects/atelier-lbf-mobile.webp",
+    category: "E-commerce",
+    technologies: ["Next.js", "Supabase", "Stripe"],
+    url: "https://www.atelier-lbf.fr/",
   },
   {
     id: "3",
-    author: "Sophie Martin",
-    role: "CEO",
-    company: "EcoTech France",
-    content:
-      "Le meilleur investissement pour notre entreprise. Le ROI a été visible dès le premier mois avec une augmentation significative du trafic.",
-    rating: 5,
+    slug: "esyloads",
+    title: "EsyLoads",
+    description:
+      "Plateforme SaaS de gestion du fret routier avec carte interactive, alertes intelligentes, analytics avancés et système d'offres entre transporteurs et chargeurs.",
+    thumbnail: "/images/projects/esyloads.webp",
+    category: "Application Web",
+    technologies: ["Next.js", "PostgreSQL", "Vercel", "Stripe"],
+    url: "https://www.esyloads.com/fr",
   },
 ];
 
 // ============================================
-// STATISTIQUES
+// ENGAGEMENTS (uniquement des chiffres vérifiables)
 // ============================================
 
 export const STATS: Stat[] = [
-  { id: "1", value: "150+", label: "Projets réalisés" },
-  { id: "2", value: "98%", label: "Clients satisfaits" },
-  { id: "3", value: "5 ans", label: "D'expertise" },
-  { id: "4", value: "48h", label: "Temps de réponse" },
+  { id: "1", value: "48h", label: "Pour recevoir votre devis" },
+  { id: "2", value: "500 €", label: "Tarif d'entrée, sans surprise" },
+  { id: "3", value: "2–4 sem.", label: "Pour un site vitrine" },
+  { id: "4", value: "1", label: "Interlocuteur unique, local" },
 ];
 
 // ============================================

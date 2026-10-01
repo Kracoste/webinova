@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
-import { Section, Badge } from "@/components/ui";
-import { BlogGrid } from "@/components/sections";
+import { Section } from "@/components/ui";
+import { BlogGrid, PageHero } from "@/components/sections";
 import { generatePageMetadata } from "@/lib/seo";
 import type { BlogPost } from "@/types";
 
@@ -103,20 +103,15 @@ export default function BlogPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-gradient-to-b from-[var(--color-gray-50)] to-white">
-        <div className="container text-center">
-          <Badge variant="primary" className="mb-4">
-            Blog
-          </Badge>
-          <h1 className="mb-6">
-            Conseils & <span className="gradient-text">actualités</span>
-          </h1>
-          <p className="text-xl text-[var(--color-gray-600)] max-w-3xl mx-auto">
-            Retrouvez nos articles sur la création de sites web, le SEO, le
-            design et le marketing digital.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="Blog"
+        title={
+          <>
+            Conseils &amp; <span className="serif-accent gradient-text-light">actualités</span>
+          </>
+        }
+        description="Mes articles sur la création de sites web, le référencement, le design et le marketing digital."
+      />
 
       {/* Blog Grid avec filtres */}
       <BlogGrid posts={blogPosts} />

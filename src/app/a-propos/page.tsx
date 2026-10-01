@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Section, SectionHeader, Badge, Icon } from "@/components/ui";
-import { CTASection } from "@/components/sections";
+import { Section, SectionHeader, Icon } from "@/components/ui";
+import { CTASection, PageHero } from "@/components/sections";
 import { generatePageMetadata } from "@/lib/seo";
-import { COMPANY, STATS } from "@/data/constants";
+import { STATS } from "@/data/constants";
 
 export const metadata: Metadata = generatePageMetadata({
   title: "À Propos – Hugo Allou, Créateur de Sites Internet à Bressuire",
   description:
-    "Webonia, créée par Hugo Allou à Bressuire (79). Créateur de sites internet pour TPE, artisans et commerçants en Deux-Sèvres. 5 ans d'expertise, +150 projets réalisés.",
+    "Webonia, créée par Hugo Allou à Bressuire (79). Créateur de sites internet indépendant pour TPE, artisans et commerçants en Deux-Sèvres. Devis gratuit sous 48h.",
   keywords: [
     "Hugo Allou",
     "créateur site internet Bressuire",
@@ -30,7 +30,7 @@ const values = [
   {
     title: "Excellence",
     description:
-      "Nous ne livrons que des projets dont nous sommes fiers. Chaque détail compte.",
+      "Je ne livre que des projets dont je suis fier. Chaque détail compte.",
     icon: "star" as const,
   },
   {
@@ -42,7 +42,7 @@ const values = [
   {
     title: "Accompagnement",
     description:
-      "Nous vous guidons de A à Z et restons disponibles après la livraison pour vous accompagner.",
+      "Je vous guide de A à Z et reste disponible après la livraison pour vous accompagner.",
     icon: "rocket" as const,
   },
 ];
@@ -51,24 +51,15 @@ export default function AProposPage() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-gradient-to-b from-[var(--color-gray-50)] to-white">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <Badge variant="primary" className="mb-4">
-              À propos
-            </Badge>
-            <h1 className="mb-6">
-              Une équipe <span className="gradient-text">passionnée</span> à
-              votre service
-            </h1>
-            <p className="text-xl text-[var(--color-gray-600)]">
-              Nous sommes une équipe de développeurs, designers et experts
-              marketing unis par une mission : créer des sites web qui génèrent
-              des résultats concrets pour nos clients.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        eyebrow="À propos"
+        title={
+          <>
+            Un créateur <span className="serif-accent gradient-text-light">passionné</span> à votre service
+          </>
+        }
+        description="Je suis Hugo Allou, concepteur web indépendant à Bressuire. Ma mission : créer des sites web qui génèrent des résultats concrets pour mes clients."
+      />
 
       {/* Notre histoire */}
       <Section background="white">
@@ -78,7 +69,7 @@ export default function AProposPage() {
               Notre histoire
             </span>
             <h2 className="mb-6">
-              Depuis 2019, nous aidons les entreprises à réussir en ligne
+              Depuis 2019, j&apos;aide les entreprises à réussir en ligne
             </h2>
             <div className="space-y-4 text-lg text-[var(--color-gray-600)]">
               <p>
@@ -102,7 +93,7 @@ export default function AProposPage() {
           <div className="relative aspect-[4/3] bg-gradient-to-br from-[var(--color-primary)]/10 to-[var(--color-accent)]/10 rounded-2xl overflow-hidden">
             <Image
               src="/web1.webp"
-              alt="Équipe Webonia"
+              alt="Webonia, création de sites internet à Bressuire"
               fill
               className="object-cover"
               priority

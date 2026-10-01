@@ -2,44 +2,10 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Section, Badge } from "@/components/ui";
-import type { Project } from "@/types";
-
-const projects: Project[] = [
-  {
-    id: "1",
-    slug: "lantunes-restaurant",
-    title: "Restaurant L'Antunes",
-    description:
-      "Site vitrine élégant pour un restaurant proposant une cuisine de saison et des vins vivants. Menus digitaux, intégration Google Maps et réseaux sociaux.",
-    thumbnail: "/images/projects/lantunes.jpg",
-    category: "Site Vitrine",
-    technologies: ["Next.js", "Tailwind CSS", "TypeScript"],
-    url: "https://www.lantunes.fr/",
-  },
-  {
-    id: "2",
-    slug: "atelier-lbf",
-    title: "Atelier LBF",
-    description:
-      "Boutique e-commerce pour un artisan fabricant de braséros en acier corten. Panier, paiement sécurisé et gestion des stocks intégrés.",
-    thumbnail: "/images/projects/atelier-lbf.jpg",
-    category: "E-commerce",
-    technologies: ["Next.js", "Supabase", "Stripe"],
-    url: "https://www.atelier-lbf.fr/",
-  },
-  {
-    id: "3",
-    slug: "esyloads",
-    title: "EsyLoads",
-    description:
-      "Plateforme SaaS de gestion du fret routier avec carte interactive, alertes intelligentes, analytics avancés et système d'offres entre transporteurs et chargeurs.",
-    thumbnail: "/images/projects/esyloads.jpg",
-    category: "Application Web",
-    technologies: ["Next.js", "PostgreSQL", "Vercel", "Stripe"],
-    url: "https://www.esyloads.com/fr",
-  },
-];
+import { Section, Icon } from "@/components/ui";
+import { Tilt } from "@/components/motion";
+import { PROJECTS } from "@/data/constants";
+import { cn } from "@/lib/utils";
 
 const categories = ["Tous", "Site Vitrine", "E-commerce", "Application Web"];
 
@@ -48,88 +14,57 @@ export function ProjectsGrid() {
 
   const filteredProjects =
     activeCategory === "Tous"
-      ? projects
-      : projects.filter((project) => project.category === activeCategory);
+      ? PROJECTS
+      : PROJECTS.filter((project) => project.category === activeCategory);
 
   return (
-    <>
+    <Section background="white" className="!pt-12">
       {/* Filtres */}
-      <Section background="white" className="!pt-0 !pb-8">
-        <div className="flex flex-wrap items-center justify-center gap-3">
-          {categories.map((category) => (
-            <button
-              key={category}
-              onClick={() => setActiveCategory(category)}
-              className={`px-5 py-2 rounded-full font-medium transition-colors ${
-                activeCategory === category
-                  ? "bg-[var(--color-primary)] text-white"
-                  : "bg-[var(--color-gray-100)] text-[var(--color-gray-600)] hover:bg-[var(--color-gray-200)]"
-              }`}
-            >
-              {category}
-            </button>
-          ))}
-        </div>
-      </Section>
+      <div className="mb-12 flex flex-wrap items-center justify-center gap-2" role="group" aria-label="Filtrer par catégorie">
+        {categories.map((category) => (
+          <button
+            key={category}
+            type="button"
+            onClick={() => setActiveCategory(category)}
+            aria-pressed={activeCategory === category}
+            className={cn(
+              "rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-300",
+              activeCategory === category
+                ? "bg-[var(--color-secondary)] text-white shadow-[var(--shadow-md)]"
+                : "border border-[var(--color-gray-200)] text-[var(--color-gray-600)] hover:border-[var(--color-gray-400)]"
+            )}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
 
       {/* Grille de projets */}
-      <Section background="white" className="!pt-0">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
-            <article
-              key={project.id}
-              className="group bg-white rounded-xl overflow-hidden border border-[var(--color-gray-200)] hover:shadow-xl transition-all duration-300"
-            >
-              {/* Capture d'écran du site */}
-              <div className="relative aspect-[16/10] bg-[var(--color-gray-100)] overflow-hidden">
-                {project.url && (
-                  <Image
-                    src={`https://api.microlink.io/?url=${encodeURIComponent(project.url)}&screenshot=true&meta=false&embed=screenshot.url`}
-                    alt={`Aperçu de ${project.title}`}
-                    fill
-                    className="object-cover object-top"
-                    unoptimized
-                  />
-                )}
-                {/* Bouton au hover */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {project.url && (
-                    <a
-                      href={project.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-6 py-3 bg-white text-[var(--color-primary)] font-semibold rounded-lg shadow-lg hover:bg-[var(--color-gray-100)] transition-colors flex items-center gap-2"
-                    >
-                      Voir le projet
-                      <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        />
-                      </svg>
-                    </a>
-                  )}
-                </div>
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {filteredProjects.map((project) => (
+          <Tilt key={project.id} max={6} innerClassName="rounded-3xl">
+            <article className="group flex h-full flex-col overflow-hidden rounded-3xl border border-[var(--color-gray-200)] bg-white shadow-[var(--shadow-sm)] transition-shadow duration-500 hover:shadow-[var(--shadow-xl)]">
+              <div className="relative aspect-[16/10] overflow-hidden bg-[var(--color-gray-100)]">
+                <Image
+                  src={project.thumbnail}
+                  alt={`Aperçu du site ${project.title}`}
+                  fill
+                  sizes="(min-width: 1024px) 400px, (min-width: 768px) 50vw, 100vw"
+                  className="object-cover object-top transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-105"
+                />
+                <span className="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-[var(--color-secondary)] backdrop-blur">
+                  {project.category}
+                </span>
               </div>
 
-              {/* Contenu */}
-              <div className="p-6">
-                <Badge variant="secondary" size="sm" className="mb-3">
-                  {project.category}
-                </Badge>
-                <h2 className="text-xl font-bold text-[var(--color-secondary)] mb-2 group-hover:text-[var(--color-primary)] transition-colors">
+              <div className="flex flex-1 flex-col p-7">
+                <h2 className="mb-3 text-2xl">
                   {project.url ? (
                     <a
                       href={project.url}
                       target="_blank"
                       rel="noopener noreferrer"
+                      className="after:absolute after:inset-0 after:content-['']"
                     >
                       {project.title}
                     </a>
@@ -137,31 +72,32 @@ export function ProjectsGrid() {
                     project.title
                   )}
                 </h2>
-                <p className="text-[var(--color-gray-500)] mb-4 line-clamp-2">
-                  {project.description}
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.slice(0, 3).map((tech) => (
-                    <span
-                      key={tech}
-                      className="text-xs px-2 py-1 bg-[var(--color-gray-100)] text-[var(--color-gray-600)] rounded"
-                    >
-                      {tech}
+                <p className="mb-6 flex-1 leading-relaxed text-[var(--color-gray-500)]">{project.description}</p>
+                <div className="flex items-center justify-between">
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.slice(0, 3).map((tech) => (
+                      <span key={tech} className="rounded-full bg-[var(--color-gray-100)] px-2.5 py-1 text-xs text-[var(--color-gray-600)]">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  {project.url && (
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[var(--color-secondary)] text-white transition-transform duration-500 group-hover:rotate-45" aria-hidden="true">
+                      <Icon name="arrow-up-right" size={18} />
                     </span>
-                  ))}
+                  )}
                 </div>
               </div>
             </article>
-          ))}
-        </div>
+          </Tilt>
+        ))}
+      </div>
 
-        {/* Message si aucun projet */}
-        {filteredProjects.length === 0 && (
-          <p className="text-center text-[var(--color-gray-500)] py-12">
-            Aucun projet dans cette catégorie pour le moment.
-          </p>
-        )}
-      </Section>
-    </>
+      {filteredProjects.length === 0 && (
+        <p className="py-12 text-center text-[var(--color-gray-500)]">
+          Aucun projet dans cette catégorie pour le moment.
+        </p>
+      )}
+    </Section>
   );
 }

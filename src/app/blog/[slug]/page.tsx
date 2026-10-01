@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { Section, Badge } from "@/components/ui";
+import { Section, Badge, Eyebrow } from "@/components/ui";
 import { CTASection } from "@/components/sections";
 
 // Données complètes des articles
@@ -413,11 +413,15 @@ export default async function BlogPostPage({
       />
 
       {/* Hero */}
-      <section className="pt-32 pb-12 bg-gradient-to-b from-[var(--color-gray-50)] to-white">
+      <section className="grain relative isolate overflow-hidden bg-[var(--night-900)] pb-16 pt-36 text-white md:pt-44">
+        <div className="absolute inset-0 -z-10" aria-hidden="true">
+          <div className="absolute left-1/4 top-0 h-[420px] w-[800px] -translate-y-1/3 rounded-full bg-[radial-gradient(closest-side,rgba(36,71,224,0.45),transparent)] blur-2xl" />
+          <div className="bg-grid-dark mask-radial absolute inset-0" />
+        </div>
         <div className="container max-w-4xl">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-[var(--color-gray-500)] hover:text-[var(--color-primary)] transition-colors mb-8"
+            className="inline-flex items-center gap-2 text-white/50 hover:text-white transition-colors mb-8"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -425,15 +429,15 @@ export default async function BlogPostPage({
             Retour au blog
           </Link>
 
-          <Badge variant="primary" className="mb-4">
+          <Eyebrow dark className="mb-5 flex w-fit">
             {post.category}
-          </Badge>
+          </Eyebrow>
           
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[var(--color-secondary)] mb-6">
+          <h1 className="text-3xl md:text-4xl lg:text-5xl text-white mb-6">
             {post.title}
           </h1>
 
-          <div className="flex flex-wrap items-center gap-4 text-[var(--color-gray-500)]">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-white/55">
             <span className="flex items-center gap-2">
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />

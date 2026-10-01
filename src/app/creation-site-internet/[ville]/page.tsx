@@ -8,16 +8,15 @@ import {
   CardContent,
   LinkButton,
   Icon,
-  Badge,
 } from "@/components/ui";
-import { CTASection, FAQSection, PricingSection } from "@/components/sections";
+import { CTASection, PricingSection, PageHero } from "@/components/sections";
 import {
   generatePageMetadata,
   generateCityServiceSchema,
   generateBreadcrumbSchema,
   generateFAQSchema,
 } from "@/lib/seo";
-import { SERVICE_AREAS, COMPANY, FAQ_ITEMS } from "@/data/constants";
+import { SERVICE_AREAS, COMPANY } from "@/data/constants";
 
 type Params = { ville: string };
 
@@ -127,31 +126,27 @@ export default async function CityPage({
       />
 
       {/* Hero */}
-      <section className="pt-32 pb-16 bg-gradient-to-b from-[var(--color-gray-50)] to-white">
-        <div className="container text-center">
-          <Badge variant="primary" className="mb-4">
-            {city.department}
-          </Badge>
-          <h1 className="mb-6">
+      <PageHero
+        eyebrow={city.department}
+        title={
+          <>
             Création de site internet à{" "}
-            <span className="gradient-text">{city.name}</span>
-          </h1>
-          <p className="text-xl text-[var(--color-gray-600)] max-w-3xl mx-auto">
-            Webonia accompagne les entreprises, artisans et commerçants de{" "}
-            {city.name} ({city.postalCode}) dans la création de leur site
-            internet professionnel. Sites vitrines, e-commerce et refontes
-            optimisés pour le référencement local.
-          </p>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-10">
-            <LinkButton href="/contact" variant="primary" size="lg">
-              Demander un devis gratuit
-            </LinkButton>
-            <LinkButton href="/realisations" variant="outline" size="lg">
-              Voir nos réalisations
-            </LinkButton>
-          </div>
+            <span className="serif-accent gradient-text-light">{city.name}</span>
+          </>
+        }
+        description={`Webonia accompagne les entreprises, artisans et commerçants de ${city.name} (${city.postalCode}) dans la création de leur site internet professionnel. Sites vitrines, e-commerce et refontes optimisés pour le référencement local.`}
+      >
+        <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <LinkButton href="/contact" variant="white" size="lg" data-track={`ville_${city.slug}_devis`}>
+            Demander un devis gratuit
+            <Icon name="arrow-right" size={18} />
+          </LinkButton>
+          <LinkButton href={`tel:${COMPANY.phone.replace(/\s/g, "")}`} variant="glass" size="lg" data-track={`ville_${city.slug}_appel`}>
+            <Icon name="phone" size={18} />
+            {COMPANY.phone}
+          </LinkButton>
         </div>
-      </section>
+      </PageHero>
 
       {/* Pourquoi Webonia à [ville] */}
       <Section background="white">

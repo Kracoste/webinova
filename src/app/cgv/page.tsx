@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { Section, SectionHeader } from "@/components/ui";
-import { COMPANY } from "@/data/constants";
+import { COMPANY, LEGAL } from "@/data/constants";
 
 export const metadata: Metadata = {
   title: "Conditions Générales de Vente (CGV) - Prestations Web | Webonia",
@@ -42,11 +42,28 @@ export default function CGVPage() {
           <div className="bg-[var(--color-primary)]/5 border border-[var(--color-primary)]/20 rounded-xl p-6 mb-12">
             <p className="text-[var(--color-gray-600)] leading-relaxed">
               Les présentes Conditions Générales de Vente (CGV) régissent l&apos;ensemble des 
-              relations contractuelles entre <strong>{COMPANY.name}</strong>, auto-entrepreneur 
+              relations contractuelles entre <strong>{LEGAL.owner}</strong>, entrepreneur 
+              individuel exerçant sous le nom commercial <strong>{COMPANY.name}</strong>, 
               spécialisé dans la création de sites internet et le développement web, et ses 
               clients professionnels ou particuliers. Toute commande de prestation implique 
               l&apos;acceptation pleine et entière des présentes CGV.
             </p>
+          </div>
+
+          {/* Identification du Prestataire */}
+          <div className="border border-[var(--color-gray-200)] rounded-xl p-6 mb-12">
+            <h3 className="font-bold text-[var(--color-secondary)] mb-4">Identification du Prestataire</h3>
+            <dl className="grid sm:grid-cols-2 gap-x-8 gap-y-3 text-sm text-[var(--color-gray-600)]">
+              <div><dt className="font-semibold text-[var(--color-secondary)]">Entrepreneur</dt><dd>{LEGAL.owner} (EI)</dd></div>
+              <div><dt className="font-semibold text-[var(--color-secondary)]">Nom commercial</dt><dd>{COMPANY.name}</dd></div>
+              <div><dt className="font-semibold text-[var(--color-secondary)]">Statut</dt><dd>{LEGAL.legalForm}</dd></div>
+              <div><dt className="font-semibold text-[var(--color-secondary)]">SIRET</dt><dd>{LEGAL.siret}</dd></div>
+              <div><dt className="font-semibold text-[var(--color-secondary)]">Immatriculation</dt><dd>{LEGAL.register}</dd></div>
+              <div><dt className="font-semibold text-[var(--color-secondary)]">TVA</dt><dd>{LEGAL.vat}</dd></div>
+              <div><dt className="font-semibold text-[var(--color-secondary)]">Adresse</dt><dd>{COMPANY.address}</dd></div>
+              <div><dt className="font-semibold text-[var(--color-secondary)]">Contact</dt><dd>{COMPANY.email} · {COMPANY.phone}</dd></div>
+              <div className="sm:col-span-2"><dt className="font-semibold text-[var(--color-secondary)]">Assurance</dt><dd>Le Prestataire est titulaire d&apos;une assurance responsabilité civile professionnelle couvrant son activité. L&apos;attestation peut être communiquée sur simple demande.</dd></div>
+            </dl>
           </div>
 
           {/* Sommaire */}
@@ -66,7 +83,10 @@ export default function CGVPage() {
               <li><a href="#article11" className="hover:text-[var(--color-primary)]">11. Responsabilité</a></li>
               <li><a href="#article12" className="hover:text-[var(--color-primary)]">12. Résiliation</a></li>
               <li><a href="#article13" className="hover:text-[var(--color-primary)]">13. Force majeure</a></li>
-              <li><a href="#article14" className="hover:text-[var(--color-primary)]">14. Droit applicable</a></li>
+              <li><a href="#article14" className="hover:text-[var(--color-primary)]">14. Droit de rétractation</a></li>
+              <li><a href="#article15" className="hover:text-[var(--color-primary)]">15. Réclamations et médiation</a></li>
+              <li><a href="#article16" className="hover:text-[var(--color-primary)]">16. Données personnelles</a></li>
+              <li><a href="#article17" className="hover:text-[var(--color-primary)]">17. Droit applicable</a></li>
             </ol>
           </div>
 
@@ -84,7 +104,7 @@ export default function CGVPage() {
               <div className="bg-[var(--color-gray-50)] p-6 rounded-xl space-y-4">
                 <div className="border-l-4 border-[var(--color-primary)] pl-4">
                   <p className="font-bold text-[var(--color-secondary)]">« Le Prestataire »</p>
-                  <p>{COMPANY.name}, représenté par Hugo Allou, auto-entrepreneur domicilié à {COMPANY.address}.</p>
+                  <p>{LEGAL.owner}, entrepreneur individuel (EI) exerçant sous le nom commercial {COMPANY.name}, SIRET {LEGAL.siret}, domicilié {COMPANY.address}.</p>
                 </div>
                 <div className="border-l-4 border-[var(--color-primary)] pl-4">
                   <p className="font-bold text-[var(--color-secondary)]">« Le Client »</p>
@@ -311,10 +331,16 @@ export default function CGVPage() {
               
               <h3 className="font-semibold text-[var(--color-secondary)] text-lg mt-6">4.4 Retard de paiement</h3>
               <p>
-                En cas de retard de paiement, des pénalités de retard seront appliquées 
-                au taux de 3 fois le taux d&apos;intérêt légal en vigueur, conformément à 
-                l&apos;article L.441-10 du Code de commerce. Une indemnité forfaitaire de 
-                40 € pour frais de recouvrement sera également due.
+                <strong>Clients professionnels :</strong> en cas de retard de paiement, des 
+                pénalités de retard sont exigibles de plein droit, sans rappel, au taux de 
+                3 fois le taux d&apos;intérêt légal en vigueur, conformément à l&apos;article 
+                L.441-10 du Code de commerce, ainsi qu&apos;une indemnité forfaitaire de 40 € 
+                pour frais de recouvrement (article D.441-5 du Code de commerce). Aucun escompte 
+                n&apos;est accordé en cas de paiement anticipé.
+              </p>
+              <p>
+                <strong>Clients consommateurs :</strong> en cas de retard de paiement, les 
+                sommes dues produisent intérêt au taux légal à compter de la mise en demeure.
               </p>
             </div>
           </section>
@@ -630,6 +656,11 @@ export default function CGVPage() {
                 </ul>
               </div>
               
+              <p className="text-sm">
+                Ces dispositions s&apos;appliquent sans préjudice du droit de rétractation dont 
+                bénéficie le Client consommateur (article 14).
+              </p>
+              
               <h3 className="font-semibold text-[var(--color-secondary)] text-lg mt-6">12.2 Résiliation par le Prestataire</h3>
               <p>
                 Le Prestataire se réserve le droit de résilier le contrat en cas de :
@@ -672,10 +703,108 @@ export default function CGVPage() {
             </div>
           </section>
 
-          {/* Article 14 - Droit applicable */}
+          {/* Article 14 - Droit de rétractation */}
           <section id="article14" className="mb-12 scroll-mt-24">
             <h2 className="text-2xl font-bold text-[var(--color-secondary)] mb-6 flex items-center gap-3">
               <span className="w-10 h-10 bg-[var(--color-primary)] text-white rounded-lg flex items-center justify-center text-lg font-bold">14</span>
+              Droit de rétractation (clients consommateurs)
+            </h2>
+            <div className="space-y-4 text-[var(--color-gray-600)] leading-relaxed">
+              <p>
+                Conformément aux articles L.221-18 et suivants du Code de la consommation, le 
+                Client consommateur dispose d&apos;un délai de <strong>14 jours</strong> à compter 
+                de la conclusion du contrat (acceptation du devis) pour exercer son droit de 
+                rétractation, sans avoir à justifier de motif ni à payer de pénalité. Ce droit 
+                ne s&apos;applique pas aux Clients professionnels.
+              </p>
+              <p>
+                Pour l&apos;exercer, le Client notifie sa décision par une déclaration dénuée 
+                d&apos;ambiguïté, par email à {COMPANY.email} ou par courrier à l&apos;adresse 
+                du Prestataire, en utilisant s&apos;il le souhaite le modèle de formulaire 
+                ci-dessous.
+              </p>
+              <p>
+                En cas de rétractation, le Prestataire rembourse la totalité des sommes versées 
+                au plus tard 14 jours après en avoir été informé, par le même moyen de paiement.
+              </p>
+              <p>
+                Si le Client demande expressément que la prestation commence avant la fin du 
+                délai de rétractation, il reste redevable d&apos;un montant proportionnel au 
+                travail réalisé jusqu&apos;à la communication de sa décision de se rétracter 
+                (article L.221-25). Le droit de rétractation ne peut plus être exercé lorsque 
+                la prestation a été pleinement exécutée avant la fin du délai, avec l&apos;accord 
+                préalable exprès du Client et sa renonciation expresse à ce droit 
+                (article L.221-28).
+              </p>
+              <div className="bg-[var(--color-gray-50)] p-6 rounded-xl text-sm">
+                <p className="font-bold text-[var(--color-secondary)] mb-3">Modèle de formulaire de rétractation</p>
+                <p className="italic">
+                  (Veuillez compléter et renvoyer le présent formulaire uniquement si vous 
+                  souhaitez vous rétracter du contrat.)
+                </p>
+                <p className="mt-3">
+                  À l&apos;attention de {LEGAL.owner} ({COMPANY.name}), {COMPANY.address}, {COMPANY.email} :
+                </p>
+                <p className="mt-2">
+                  Je vous notifie par la présente ma rétractation du contrat portant sur la 
+                  prestation de services ci-dessous :<br />
+                  Commandé le / accepté le : …………<br />
+                  Nom du consommateur : …………<br />
+                  Adresse du consommateur : …………<br />
+                  Signature (uniquement en cas de notification sur papier) : …………<br />
+                  Date : …………
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Article 15 - Réclamations et médiation */}
+          <section id="article15" className="mb-12 scroll-mt-24">
+            <h2 className="text-2xl font-bold text-[var(--color-secondary)] mb-6 flex items-center gap-3">
+              <span className="w-10 h-10 bg-[var(--color-primary)] text-white rounded-lg flex items-center justify-center text-lg font-bold">15</span>
+              Réclamations et médiation
+            </h2>
+            <div className="space-y-4 text-[var(--color-gray-600)] leading-relaxed">
+              <p>
+                Toute réclamation doit être adressée en priorité au Prestataire, par email à{" "}
+                {COMPANY.email} ou par courrier à l&apos;adresse indiquée ci-dessus.
+              </p>
+              <p>
+                Conformément aux articles L.611-1 et suivants du Code de la consommation, le 
+                Client consommateur a le droit de recourir gratuitement à un médiateur de la 
+                consommation en vue de la résolution amiable d&apos;un litige, après avoir tenté 
+                de le résoudre directement auprès du Prestataire par une réclamation écrite. 
+                Le Client peut également saisir gratuitement un conciliateur de justice 
+                (www.conciliateurs.fr).
+              </p>
+            </div>
+          </section>
+
+          {/* Article 16 - Données personnelles */}
+          <section id="article16" className="mb-12 scroll-mt-24">
+            <h2 className="text-2xl font-bold text-[var(--color-secondary)] mb-6 flex items-center gap-3">
+              <span className="w-10 h-10 bg-[var(--color-primary)] text-white rounded-lg flex items-center justify-center text-lg font-bold">16</span>
+              Données personnelles
+            </h2>
+            <div className="space-y-4 text-[var(--color-gray-600)] leading-relaxed">
+              <p>
+                Les données personnelles collectées dans le cadre des devis et des prestations 
+                sont nécessaires à leur exécution et à la facturation. Elles sont traitées 
+                conformément au Règlement général sur la protection des données (RGPD) et à la 
+                loi Informatique et Libertés. Le Client dispose d&apos;un droit d&apos;accès, de 
+                rectification, d&apos;effacement et d&apos;opposition, qu&apos;il peut exercer 
+                par email à {COMPANY.email}. Pour en savoir plus, consultez la{" "}
+                <a href="/confidentialite" className="text-[var(--color-primary)] underline">
+                  politique de confidentialité
+                </a>.
+              </p>
+            </div>
+          </section>
+
+          {/* Article 17 - Droit applicable */}
+          <section id="article17" className="mb-12 scroll-mt-24">
+            <h2 className="text-2xl font-bold text-[var(--color-secondary)] mb-6 flex items-center gap-3">
+              <span className="w-10 h-10 bg-[var(--color-primary)] text-white rounded-lg flex items-center justify-center text-lg font-bold">17</span>
               Droit applicable et litiges
             </h2>
             <div className="space-y-4 text-[var(--color-gray-600)] leading-relaxed">
@@ -689,8 +818,10 @@ export default function CGVPage() {
               </p>
               <p>
                 À défaut d&apos;accord amiable dans un délai de 30 jours à compter de la 
-                première réclamation écrite, le litige sera porté devant les tribunaux 
-                compétents du ressort de Bressuire ou de Niort.
+                première réclamation écrite : pour les Clients professionnels, le litige sera 
+                porté devant les tribunaux compétents du ressort de Niort ; pour les Clients 
+                consommateurs, devant la juridiction compétente selon les règles de droit 
+                commun, notamment celle du lieu de leur domicile.
               </p>
             </div>
           </section>
@@ -725,7 +856,7 @@ export default function CGVPage() {
           {/* Date de mise à jour */}
           <div className="text-center pt-8 border-t border-[var(--color-gray-200)]">
             <p className="text-[var(--color-gray-400)] text-sm">
-              Dernière mise à jour des Conditions Générales de Vente : <strong>Janvier 2026</strong>
+              Dernière mise à jour des Conditions Générales de Vente : <strong>Octobre 2026</strong>
             </p>
           </div>
         </div>

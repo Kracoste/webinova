@@ -1,120 +1,57 @@
-import { Section, LinkButton } from "@/components/ui";
+import { LinkButton, Icon } from "@/components/ui";
+import { WaveField } from "@/components/motion";
 import { COMPANY } from "@/data/constants";
 
 export function CTASection() {
   return (
-    <Section background="white" className="relative overflow-hidden">
-      {/* Background decoratif */}
-      <div
-        className="absolute inset-0 gradient-bg opacity-95"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute top-0 right-0 w-96 h-96 bg-white/10 rounded-full blur-3xl"
-        aria-hidden="true"
-      />
-      <div
-        className="absolute bottom-0 left-0 w-72 h-72 bg-white/5 rounded-full blur-3xl"
-        aria-hidden="true"
-      />
-
-      <div className="relative z-10 text-center text-white max-w-3xl mx-auto">
-        <h2 className="text-white mb-6">
-          Prêt à donner vie à votre projet web ?
-        </h2>
-
-        <p className="text-white/80 text-xl mb-10 leading-relaxed">
-          Discutons de votre projet et créons ensemble le site web qui fera
-          décoller votre activité. Devis gratuit sous 48h.
-        </p>
-
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <LinkButton
-            href="/contact"
-            variant="outline"
-            size="lg"
-            className="!bg-white !text-[var(--color-primary)] !border-white hover:!bg-[var(--color-gray-100)]"
-          >
-            Demander un devis gratuit
-          </LinkButton>
-
-          <a
-            href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}
-            className="inline-flex items-center gap-2 text-white font-semibold hover:text-white/80 transition-colors"
-          >
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
-              />
-            </svg>
-            ou appelez-nous : {COMPANY.phone}
-          </a>
+    <section className="px-3 py-3 sm:px-4 sm:py-4">
+      <div className="grain relative isolate overflow-hidden rounded-[32px] bg-[var(--night-900)] px-6 py-24 text-white md:py-32">
+        {/* Décor */}
+        <div className="absolute inset-0 -z-10" aria-hidden="true">
+          <div className="animate-aurora absolute left-1/2 top-0 h-[400px] w-[700px] -translate-x-1/2 -translate-y-1/3 rounded-full bg-[radial-gradient(closest-side,rgba(36,71,224,0.6),transparent)] blur-2xl" />
+          <div className="bg-grid-dark mask-radial absolute inset-0" />
+          <div className="absolute inset-x-0 bottom-0 h-[55%] opacity-80">
+            <WaveField />
+          </div>
         </div>
 
-        {/* Réassurance */}
-        <div className="mt-12 flex flex-wrap items-center justify-center gap-6 text-white/70 text-sm">
-          <span className="flex items-center gap-2">
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
+        <div className="relative mx-auto max-w-3xl text-center">
+          <h2 className="mb-6 text-white">
+            Prêt à recevoir plus de <span className="serif-accent gradient-text-light">demandes de clients</span> ?
+          </h2>
+
+          <p className="mx-auto mb-10 max-w-xl text-lg leading-relaxed text-white/60 md:text-xl">
+            Expliquez-moi votre projet en 2 minutes. Vous recevez un devis clair et gratuit sous 48h,
+            sans aucun engagement.
+          </p>
+
+          <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <LinkButton href="/contact" variant="white" size="lg" data-track="cta_devis" className="w-full sm:w-auto">
+              Demander mon devis gratuit
+              <Icon name="arrow-right" size={18} className="transition-transform group-hover/btn:translate-x-1" />
+            </LinkButton>
+            <LinkButton
+              href={`tel:${COMPANY.phone.replace(/\s/g, "")}`}
+              variant="glass"
+              size="lg"
+              data-track="cta_appel"
+              className="w-full sm:w-auto"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-            Devis gratuit sans engagement
-          </span>
-          <span className="flex items-center gap-2">
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-            Réponse sous 48h
-          </span>
-          <span className="flex items-center gap-2">
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-            Support réactif
-          </span>
+              <Icon name="phone" size={18} />
+              {COMPANY.phone}
+            </LinkButton>
+          </div>
+
+          <ul className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-white/50">
+            {["Devis gratuit", "Réponse sous 48h", "Sans engagement"].map((item) => (
+              <li key={item} className="flex items-center gap-2">
+                <Icon name="check" size={16} className="text-[var(--color-cyan)]" />
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-    </Section>
+    </section>
   );
 }

@@ -1,71 +1,51 @@
 import { Section, SectionHeader, Icon, ScrollReveal, type IconName } from "@/components/ui";
 import { PROCESS_STEPS } from "@/data/constants";
 
+const DURATIONS = ["Appel offert", "Vous validez la maquette", "Site vitrine : 2 à 4 sem.", "Formation & support"];
+
 export function ProcessSection() {
   return (
-    <Section id="process" background="gray">
+    <Section id="process" background="gray" className="overflow-hidden">
       <SectionHeader
-        subtitle="Notre méthode"
-        title="Un processus simple et efficace"
-        description="De la première prise de contact au lancement de votre site, nous vous accompagnons à chaque étape."
+        subtitle="Méthode"
+        title={
+          <>
+            De l&apos;idée au site en ligne, <span className="serif-accent gradient-text">en 4 étapes</span>
+          </>
+        }
+        description="Un processus simple, sans jargon. Vous validez chaque étape avant de passer à la suivante."
       />
 
-      <div className="relative">
-        {/* Ligne de connexion (desktop) */}
-        <div
-          className="hidden lg:block absolute top-1/2 left-0 right-0 h-0.5 bg-[var(--color-gray-200)] -translate-y-1/2"
-          aria-hidden="true"
-        />
+      <ScrollReveal className="relative">
+        {/* Ligne de progression qui se dessine */}
+        <div className="absolute left-0 right-0 top-8 hidden h-px bg-[var(--color-gray-200)] lg:block" aria-hidden="true">
+          <div className="draw-x h-full w-full bg-[linear-gradient(90deg,var(--color-primary),var(--color-accent),var(--color-cyan))]" />
+        </div>
+        <div className="absolute bottom-0 left-8 top-0 w-px bg-[var(--color-gray-200)] lg:hidden" aria-hidden="true">
+          <div className="draw-y h-full w-full bg-[linear-gradient(180deg,var(--color-primary),var(--color-accent),var(--color-cyan))]" />
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <ol className="relative grid grid-cols-1 gap-10 lg:grid-cols-4 lg:gap-8">
           {PROCESS_STEPS.map((step, index) => (
-            <ScrollReveal key={step.id} delay={(index % 3) as 0 | 1 | 2 | 3} className="relative">
-              {/* Card */}
-              <div className="bg-white rounded-xl p-6 shadow-sm border border-[var(--color-gray-100)] h-full flex flex-col items-center text-center relative z-10">
-                {/* Numéro */}
-                <div className="w-16 h-16 rounded-full gradient-bg flex items-center justify-center text-white mb-6 shadow-lg">
-                  <Icon name={step.icon as IconName} size={28} />
-                </div>
-
-                {/* Étape */}
-                <span className="text-[var(--color-primary)] font-semibold text-sm mb-2">
-                  Étape {step.id}
+            <li key={step.id} className="relative flex gap-6 lg:block">
+              <div className="relative z-10 flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl border border-[var(--color-gray-200)] bg-white text-[var(--color-primary)] shadow-[var(--shadow-md)] lg:mb-8">
+                <Icon name={step.icon as IconName} size={26} />
+                <span className="absolute -right-2 -top-2 flex h-6 w-6 items-center justify-center rounded-full bg-[var(--color-secondary)] font-mono text-[11px] font-semibold text-white">
+                  {index + 1}
                 </span>
-
-                <h3 className="text-xl font-bold text-[var(--color-secondary)] mb-3">
-                  {step.title}
-                </h3>
-
-                <p className="text-[var(--color-gray-500)] leading-relaxed">
-                  {step.description}
-                </p>
               </div>
 
-              {/* Connecteur mobile */}
-              {index < PROCESS_STEPS.length - 1 && (
-                <div
-                  className="lg:hidden flex justify-center my-4"
-                  aria-hidden="true"
-                >
-                  <svg
-                    className="w-6 h-6 text-[var(--color-gray-300)]"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                    />
-                  </svg>
-                </div>
-              )}
-            </ScrollReveal>
+              <div>
+                <p className="mb-2 font-mono text-xs uppercase tracking-[0.14em] text-[var(--color-primary)]">
+                  {DURATIONS[index]}
+                </p>
+                <h3 className="mb-3 text-2xl">{step.title}</h3>
+                <p className="leading-relaxed text-[var(--color-gray-500)]">{step.description}</p>
+              </div>
+            </li>
           ))}
-        </div>
-      </div>
+        </ol>
+      </ScrollReveal>
     </Section>
   );
 }
